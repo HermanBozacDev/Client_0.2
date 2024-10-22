@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ekqi36dneroh"]
+
+[ext_resource type="Texture2D" uid="uid://b5a6olytlq4l5" path="res://Resources/Tilesets/basictiles.png" id="1_mx17e"]
+
+[resource]
+texture = ExtResource("1_mx17e")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(92, 220, 24, 24)

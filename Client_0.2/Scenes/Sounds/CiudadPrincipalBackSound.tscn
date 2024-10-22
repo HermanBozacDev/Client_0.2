@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv2imlh4xag2a"]
+
+[ext_resource type="Script" path="res://Scenes/Sounds/CiudadPrincipalBackSound.gd" id="1_7rlmf"]
+[ext_resource type="AudioStream" uid="uid://do7uiuswaib48" path="res://Resources/Music/CiudadPrincipalAmbient.mp3" id="1_u2u3h"]
+
+[node name="CiudadPrincipalBackSound" type="Node"]
+script = ExtResource("1_7rlmf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_u2u3h")
+volume_db = -30.0
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

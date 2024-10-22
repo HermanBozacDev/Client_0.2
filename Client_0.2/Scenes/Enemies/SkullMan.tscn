@@ -1,0 +1,207 @@
+[gd_scene load_steps=17 format=3 uid="uid://bonn3upp3c0t"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/SkullMan.gd" id="1_i2k15"]
+[ext_resource type="Texture2D" uid="uid://dnllsj45uo60s" path="res://Resources/Enemies/SkullMan/SkullMan.png" id="2_e0nau"]
+[ext_resource type="Texture2D" uid="uid://yd2siu0jrafs" path="res://Resources/GUI/BASEHPBar.png" id="3_by4x2"]
+[ext_resource type="Texture2D" uid="uid://biufo2ea3clvg" path="res://Resources/GUI/HPBar.png" id="4_rdt6i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0x4a3"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_efdpu"]
+resource_name = "Idle_E"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_qc8mm"]
+resource_name = "Idle_N"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [49]
+}
+
+[sub_resource type="Animation" id="Animation_1sus8"]
+resource_name = "Idle_S"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [33]
+}
+
+[sub_resource type="Animation" id="Animation_di5qg"]
+resource_name = "Idle_W"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_b75o1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_rsp2r"]
+resource_name = "Walk_E"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ya76g"]
+resource_name = "Walk_N"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51]
+}
+
+[sub_resource type="Animation" id="Animation_38wxv"]
+resource_name = "Walk_S"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_itj4y"]
+resource_name = "Walk_W"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dm2oc"]
+_data = {
+"Idle_E": SubResource("Animation_efdpu"),
+"Idle_N": SubResource("Animation_qc8mm"),
+"Idle_S": SubResource("Animation_1sus8"),
+"Idle_W": SubResource("Animation_di5qg"),
+"RESET": SubResource("Animation_b75o1"),
+"Walk_E": SubResource("Animation_rsp2r"),
+"Walk_N": SubResource("Animation_ya76g"),
+"Walk_S": SubResource("Animation_38wxv"),
+"Walk_W": SubResource("Animation_itj4y")
+}
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_s4rh0"]
+
+[node name="SkullMan" type="CharacterBody2D"]
+script = ExtResource("1_i2k15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0x4a3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_e0nau")
+hframes = 16
+vframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dm2oc")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_s4rh0")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+offset_bottom = -14.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_by4x2")
+texture_over = ExtResource("4_rdt6i")
+texture_progress = ExtResource("3_by4x2")
+tint_under = Color(0.239216, 0.109804, 0.00392157, 0.501961)
+tint_over = Color(0.726586, 0.639365, 0, 1)
+tint_progress = Color(0.0433295, 0.585952, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

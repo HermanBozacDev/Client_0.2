@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://2akcurt8wnot"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Alert.gd" id="1_3j2a3"]
+[ext_resource type="StyleBox" uid="uid://ekqi36dneroh" path="res://Scenes/UI/PatronStyle.tres" id="1_mqsmo"]
+[ext_resource type="Texture2D" uid="uid://bs3i47a078ar0" path="res://Resources/GUI/Button_normal.png" id="2_iuo44"]
+[ext_resource type="Texture2D" uid="uid://b2mg5jll3m07p" path="res://Resources/GUI/Button_pressed.png" id="3_asqet"]
+
+[node name="Alert" type="Control"]
+custom_minimum_size = Vector2(124, 64)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 38.0
+offset_right = 69.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3j2a3")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_mqsmo")
+
+[node name="Body" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 16.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Body"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Ok" type="TextureButton" parent="Panel/Body"]
+custom_minimum_size = Vector2(32, 24)
+layout_mode = 2
+texture_normal = ExtResource("2_iuo44")
+texture_pressed = ExtResource("3_asqet")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/Body/Ok"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "OK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/Body/Ok" to="." method="_on_ok_pressed"]

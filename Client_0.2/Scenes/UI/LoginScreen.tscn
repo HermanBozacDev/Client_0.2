@@ -1,0 +1,713 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf3wjbcv8u4n3"]
+
+[ext_resource type="Script" path="res://Scenes/UI/LoginScreen.gd" id="1_6r5f8"]
+[ext_resource type="Texture2D" uid="uid://b4wtt67vakbsv" path="res://Resources/GUI/TDF1.png" id="1_uy72n"]
+[ext_resource type="StyleBox" uid="uid://ekqi36dneroh" path="res://Scenes/UI/PatronStyle.tres" id="2_jvgir"]
+[ext_resource type="StyleBox" uid="uid://c0j40co6qeyp4" path="res://Scenes/UI/Focused.tres" id="3_mv2ea"]
+[ext_resource type="Texture2D" uid="uid://bs3i47a078ar0" path="res://Resources/GUI/Button_normal.png" id="4_53kv1"]
+[ext_resource type="Texture2D" uid="uid://b2mg5jll3m07p" path="res://Resources/GUI/Button_pressed.png" id="5_av2uu"]
+
+[node name="LoginScreen" type="Control" groups=["LoginScreen"]]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6r5f8")
+
+[node name="Backgroun" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uy72n")
+
+[node name="Panel" type="Panel" parent="Backgroun"]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.716
+anchor_right = 0.5
+anchor_bottom = 0.716
+offset_left = -126.0
+offset_top = -82.12
+offset_right = 130.0
+offset_bottom = 81.88
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_jvgir")
+
+[node name="LoginScreen" type="VBoxContainer" parent="Backgroun/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="User" type="HBoxContainer" parent="Backgroun/Panel/LoginScreen"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/User"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "USERNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UserText" type="LineEdit" parent="Backgroun/Panel/LoginScreen/User"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = ExtResource("3_mv2ea")
+theme_override_styles/normal = ExtResource("2_jvgir")
+text = "1111"
+
+[node name="Pass" type="HBoxContainer" parent="Backgroun/Panel/LoginScreen"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/Pass"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "PASSWORD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PassText" type="LineEdit" parent="Backgroun/Panel/LoginScreen/Pass"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = ExtResource("3_mv2ea")
+theme_override_styles/normal = ExtResource("2_jvgir")
+text = "12341234"
+
+[node name="Buttons" type="HBoxContainer" parent="Backgroun/Panel/LoginScreen"]
+layout_mode = 2
+alignment = 1
+
+[node name="Login" type="TextureButton" parent="Backgroun/Panel/LoginScreen/Buttons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/Buttons/Login"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "LOGIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreateAccount" type="TextureButton" parent="Backgroun/Panel/LoginScreen/Buttons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/Buttons/CreateAccount"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "REGISTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="Backgroun/Panel/LoginScreen/Buttons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/Buttons/Exit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreateAccount" type="VBoxContainer" parent="Backgroun/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="aux" type="HBoxContainer" parent="Backgroun/Panel/CreateAccount"]
+layout_mode = 2
+alignment = 1
+
+[node name="aux" type="VBoxContainer" parent="Backgroun/Panel/CreateAccount/aux"]
+layout_mode = 2
+
+[node name="Username" type="HBoxContainer" parent="Backgroun/Panel/CreateAccount/aux/aux"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/aux/Username"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "USERNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Username" type="LineEdit" parent="Backgroun/Panel/CreateAccount/aux/aux/Username"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = ExtResource("3_mv2ea")
+theme_override_styles/normal = ExtResource("2_jvgir")
+
+[node name="Password" type="HBoxContainer" parent="Backgroun/Panel/CreateAccount/aux/aux"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/aux/Password"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "PASSWORD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Password" type="LineEdit" parent="Backgroun/Panel/CreateAccount/aux/aux/Password"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = ExtResource("3_mv2ea")
+theme_override_styles/normal = ExtResource("2_jvgir")
+text = "12341234"
+
+[node name="RepeatPassword" type="HBoxContainer" parent="Backgroun/Panel/CreateAccount/aux/aux"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/aux/RepeatPassword"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "PASSWORD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RepeatPassword" type="LineEdit" parent="Backgroun/Panel/CreateAccount/aux/aux/RepeatPassword"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = ExtResource("3_mv2ea")
+theme_override_styles/normal = ExtResource("2_jvgir")
+text = "12341234"
+
+[node name="Buttons" type="VBoxContainer" parent="Backgroun/Panel/CreateAccount/aux"]
+layout_mode = 2
+alignment = 1
+
+[node name="Confirm" type="TextureButton" parent="Backgroun/Panel/CreateAccount/aux/Buttons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/Buttons/Confirm"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "CONFIRM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToLogin" type="TextureButton" parent="Backgroun/Panel/CreateAccount/aux/Buttons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/Buttons/BackToLogin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "BACK "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UserPanel" type="VBoxContainer" parent="Backgroun/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -34.0
+offset_right = 32.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="NewPlayer" type="TextureButton" parent="Backgroun/Panel/UserPanel"]
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/UserPanel/NewPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "NEW PLAYER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadPlayer" type="TextureButton" parent="Backgroun/Panel/UserPanel"]
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/UserPanel/LoadPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "LOAD PLAYER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadPlayer" type="VBoxContainer" parent="Backgroun/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Backgroun/Panel/LoadPlayer"]
+layout_mode = 2
+
+[node name="Back" type="TextureButton" parent="Backgroun/Panel/LoadPlayer"]
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/LoadPlayer/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadPlayer" type="VBoxContainer" parent="Backgroun/Panel/LoadPlayer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="SelectName" type="VBoxContainer" parent="Backgroun/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -60.0
+offset_right = 40.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectName"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "SELECT NICKNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Username" type="LineEdit" parent="Backgroun/Panel/SelectName"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = ExtResource("3_mv2ea")
+theme_override_styles/normal = ExtResource("2_jvgir")
+
+[node name="PickClass" type="TextureButton" parent="Backgroun/Panel/SelectName"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectName/PickClass"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "SELECT CLASS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="TextureButton" parent="Backgroun/Panel/SelectName"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectName/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectType" type="VBoxContainer" parent="Backgroun/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -34.0
+offset_right = 32.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Fighter" type="TextureButton" parent="Backgroun/Panel/SelectType"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectType/Fighter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "FIGHTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wizard" type="TextureButton" parent="Backgroun/Panel/SelectType"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectType/Wizard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "WIZARD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectClass" type="VBoxContainer" parent="Backgroun/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="SelectClass" type="VBoxContainer" parent="Backgroun/Panel/SelectClass"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Elf" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Elf"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "ELF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DarkElf" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/DarkElf"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "DARK ELF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Human" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Human"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "HUMAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Orc" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Orc"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "ORC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dwarf" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Dwarf"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "DWARF"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmScreen" type="VBoxContainer" parent="Backgroun/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Backgroun/Panel/ConfirmScreen"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CreateNewPlayer" type="TextureButton" parent="Backgroun/Panel/ConfirmScreen/VBoxContainer"]
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/ConfirmScreen/VBoxContainer/CreateNewPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "CONFIRM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="TextureButton" parent="Backgroun/Panel/ConfirmScreen/VBoxContainer"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_53kv1")
+texture_pressed = ExtResource("5_av2uu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Backgroun/Panel/ConfirmScreen/VBoxContainer/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Backgroun/Panel/LoginScreen/Buttons/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/LoginScreen/Buttons/CreateAccount" to="." method="_on_create_account_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/LoginScreen/Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/CreateAccount/aux/Buttons/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/CreateAccount/aux/Buttons/BackToLogin" to="." method="_on_back_to_login_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/UserPanel/NewPlayer" to="." method="_on_new_player_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/UserPanel/LoadPlayer" to="." method="_on_load_player_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/LoadPlayer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectName/PickClass" to="." method="_on_pick_class_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectName/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectType/Fighter" to="." method="_on_fighter_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectType/Wizard" to="." method="_on_wizard_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Elf" to="." method="_on_elf_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/DarkElf" to="." method="_on_dark_elf_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Human" to="." method="_on_human_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Orc" to="." method="_on_orc_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Dwarf" to="." method="_on_dwarf_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/ConfirmScreen/VBoxContainer/CreateNewPlayer" to="." method="_on_create_new_player_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/ConfirmScreen/VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://87g8atio8cr6"]
+
+[ext_resource type="Script" path="res://Scenes/UI/LoadSlot.gd" id="1_75rsd"]
+[ext_resource type="Texture2D" uid="uid://b5a6olytlq4l5" path="res://Resources/Tilesets/basictiles.png" id="1_qxwww"]
+[ext_resource type="Texture2D" uid="uid://bs3i47a078ar0" path="res://Resources/GUI/Button_normal.png" id="2_d60d6"]
+[ext_resource type="Texture2D" uid="uid://b2mg5jll3m07p" path="res://Resources/GUI/Button_pressed.png" id="3_88qri"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l10cp"]
+texture = ExtResource("1_qxwww")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(92, 220, 24, 24)
+
+[node name="LoadSlot" type="Control" groups=["LoadSlot"]]
+custom_minimum_size = Vector2(256, 16)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_75rsd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l10cp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="CharacterTitle" type="Label" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "NAME: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterName" type="Label" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterLevelTitle" type="Label" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "LEVEL:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterLevel" type="Label" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load" type="TextureButton" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture_normal = ExtResource("2_d60d6")
+texture_pressed = ExtResource("3_88qri")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Load"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "LOAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Delete" type="TextureButton" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture_normal = ExtResource("2_d60d6")
+texture_pressed = ExtResource("3_88qri")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Delete"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "DELETE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/HBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Delete" to="." method="_on_delete_pressed"]
