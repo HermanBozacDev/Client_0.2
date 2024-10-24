@@ -17,12 +17,14 @@ region_rect = Rect2(92, 220, 24, 24)
 texture_filter = 1
 custom_minimum_size = Vector2(288, 166)
 layout_mode = 3
-anchor_left = 0.2
-anchor_top = 0.3
-anchor_right = 0.8
-anchor_bottom = 0.869
+anchor_left = 0.256
+anchor_top = 0.2
+anchor_right = 0.857
+anchor_bottom = 0.766
+offset_left = 0.119995
 offset_top = 16.0
-offset_bottom = -0.0800171
+offset_right = -0.360016
+offset_bottom = 0.87999
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6d7jw")
@@ -37,7 +39,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_md5uq")
 
-[node name="InventoryBackground" type="TextureRect" parent="Panel"]
+[node name="Background" type="TextureRect" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Inventory" type="VBoxContainer" parent="Panel/InventoryBackground"]
+[node name="Inventory" type="VBoxContainer" parent="Panel/Background"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -60,38 +62,38 @@ offset_bottom = -0.0109863
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Inventory" type="HBoxContainer" parent="Panel/InventoryBackground/Inventory"]
+[node name="Inventory" type="HBoxContainer" parent="Panel/Background/Inventory"]
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/InventoryBackground/Inventory/Inventory"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Background/Inventory/Inventory"]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
-[node name="Items" type="GridContainer" parent="Panel/InventoryBackground/Inventory/Inventory"]
+[node name="Items" type="GridContainer" parent="Panel/Background/Inventory/Inventory"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="Panel/InventoryBackground/Inventory/Inventory"]
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/Background/Inventory/Inventory"]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
-[node name="EquipItems" type="GridContainer" parent="Panel/InventoryBackground/Inventory/Inventory"]
+[node name="EquipItems" type="GridContainer" parent="Panel/Background/Inventory/Inventory"]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 3
 
-[node name="MarginContainer3" type="MarginContainer" parent="Panel/InventoryBackground/Inventory/Inventory"]
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/Background/Inventory/Inventory"]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
-[node name="ExtraItems" type="GridContainer" parent="Panel/InventoryBackground/Inventory/Inventory"]
+[node name="ExtraItems" type="GridContainer" parent="Panel/Background/Inventory/Inventory"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Skills" type="VBoxContainer" parent="Panel/InventoryBackground"]
+[node name="Skills" type="VBoxContainer" parent="Panel/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,19 +101,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/InventoryBackground/Skills"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Background/Skills"]
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="Panel/InventoryBackground/Skills"]
+[node name="Buttons" type="HBoxContainer" parent="Panel/Background/Skills"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Buttons"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Background/Skills/Buttons"]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
-[node name="ActiveSkillButton" type="TextureButton" parent="Panel/InventoryBackground/Skills/Buttons"]
+[node name="ActiveSkillButton" type="TextureButton" parent="Panel/Background/Skills/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("3_a6pa6")
@@ -119,7 +121,7 @@ texture_pressed = ExtResource("4_f1tl6")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Panel/InventoryBackground/Skills/Buttons/ActiveSkillButton"]
+[node name="Label" type="Label" parent="Panel/Background/Skills/Buttons/ActiveSkillButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,7 +133,7 @@ text = "Active Skills"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PasiveSkillButton" type="TextureButton" parent="Panel/InventoryBackground/Skills/Buttons"]
+[node name="PasiveSkillButton" type="TextureButton" parent="Panel/Background/Skills/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("3_a6pa6")
@@ -139,7 +141,7 @@ texture_pressed = ExtResource("4_f1tl6")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label2" type="Label" parent="Panel/InventoryBackground/Skills/Buttons/PasiveSkillButton"]
+[node name="Label2" type="Label" parent="Panel/Background/Skills/Buttons/PasiveSkillButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,63 +153,63 @@ text = "Pasive Skills"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Buttons"]
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/Background/Skills/Buttons"]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
-[node name="Body" type="VBoxContainer" parent="Panel/InventoryBackground/Skills"]
+[node name="Body" type="VBoxContainer" parent="Panel/Background/Skills"]
 layout_mode = 2
 
-[node name="ActiveSkills" type="VBoxContainer" parent="Panel/InventoryBackground/Skills/Body"]
+[node name="ActiveSkills" type="VBoxContainer" parent="Panel/Background/Skills/Body"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Body/ActiveSkills"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Background/Skills/Body/ActiveSkills"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/InventoryBackground/Skills/Body/ActiveSkills"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Background/Skills/Body/ActiveSkills"]
 layout_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Body/ActiveSkills/HBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/Background/Skills/Body/ActiveSkills/HBoxContainer"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 
-[node name="ActiveSkillsContainer" type="GridContainer" parent="Panel/InventoryBackground/Skills/Body/ActiveSkills/HBoxContainer"]
+[node name="ActiveSkillsContainer" type="GridContainer" parent="Panel/Background/Skills/Body/ActiveSkills/HBoxContainer"]
 layout_mode = 2
 columns = 11
 
-[node name="MarginContainer4" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Body/ActiveSkills/HBoxContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="Panel/Background/Skills/Body/ActiveSkills/HBoxContainer"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Body/ActiveSkills"]
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/Background/Skills/Body/ActiveSkills"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
-[node name="PasiveSkills" type="VBoxContainer" parent="Panel/InventoryBackground/Skills/Body"]
+[node name="PasiveSkills" type="VBoxContainer" parent="Panel/Background/Skills/Body"]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Body/PasiveSkills"]
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/Background/Skills/Body/PasiveSkills"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/InventoryBackground/Skills/Body/PasiveSkills"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Background/Skills/Body/PasiveSkills"]
 layout_mode = 2
 
-[node name="MarginContainer5" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Body/PasiveSkills/HBoxContainer2"]
+[node name="MarginContainer5" type="MarginContainer" parent="Panel/Background/Skills/Body/PasiveSkills/HBoxContainer2"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 
-[node name="PasiveSkillsContainer" type="GridContainer" parent="Panel/InventoryBackground/Skills/Body/PasiveSkills/HBoxContainer2"]
+[node name="PasiveSkillsContainer" type="GridContainer" parent="Panel/Background/Skills/Body/PasiveSkills/HBoxContainer2"]
 layout_mode = 2
 columns = 11
 
-[node name="MarginContainer6" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Body/PasiveSkills/HBoxContainer2"]
+[node name="MarginContainer6" type="MarginContainer" parent="Panel/Background/Skills/Body/PasiveSkills/HBoxContainer2"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 
-[node name="MarginContainer4" type="MarginContainer" parent="Panel/InventoryBackground/Skills/Body/PasiveSkills"]
+[node name="MarginContainer4" type="MarginContainer" parent="Panel/Background/Skills/Body/PasiveSkills"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
@@ -215,14 +217,14 @@ layout_mode = 2
 custom_minimum_size = Vector2(120, 16)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.425
-anchor_top = 0.013
-anchor_right = 1.425
-anchor_bottom = 0.013
-offset_left = -282.4
-offset_top = -18.158
-offset_right = -152.4
-offset_bottom = -2.158
+anchor_left = 0.67
+anchor_top = -0.048
+anchor_right = 0.67
+anchor_bottom = -0.048
+offset_left = -64.96
+offset_top = -8.032
+offset_right = 65.04
+offset_bottom = 7.968
 texture_normal = ExtResource("3_a6pa6")
 texture_pressed = ExtResource("4_f1tl6")
 ignore_texture_size = true
@@ -245,14 +247,14 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(130, 16)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.425
-anchor_top = 0.254
-anchor_right = 1.425
-anchor_bottom = 0.254
-offset_left = -410.4
-offset_top = -58.164
-offset_right = -306.4
-offset_bottom = -42.164
+anchor_left = 0.226
+anchor_top = -0.048
+anchor_right = 0.226
+anchor_bottom = -0.048
+offset_left = -65.088
+offset_top = -8.032
+offset_right = 38.912
+offset_bottom = 7.968
 texture_normal = ExtResource("3_a6pa6")
 texture_pressed = ExtResource("4_f1tl6")
 ignore_texture_size = true
@@ -301,8 +303,8 @@ text = "X"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Panel/InventoryBackground/Skills/Buttons/ActiveSkillButton" to="." method="_on_active_skill_button_pressed"]
-[connection signal="pressed" from="Panel/InventoryBackground/Skills/Buttons/PasiveSkillButton" to="." method="_on_pasive_skill_button_pressed"]
+[connection signal="pressed" from="Panel/Background/Skills/Buttons/ActiveSkillButton" to="." method="_on_active_skill_button_pressed"]
+[connection signal="pressed" from="Panel/Background/Skills/Buttons/PasiveSkillButton" to="." method="_on_pasive_skill_button_pressed"]
 [connection signal="pressed" from="SkillsPanel" to="." method="_on_skills_panel_pressed"]
 [connection signal="pressed" from="Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

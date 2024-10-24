@@ -58,11 +58,7 @@ func DetermineLatency():
 @rpc func ServerSendDataToOneClient(_player_id,key,value):
 	match key:
 		"FetchServerTime":
-			print("server time",value[0],"client time", value[1])
-			print("AJUSTO MI TIEMPO AL SERVER")
 			latency = (Time.get_ticks_msec() - value[1]) / 2 
-			print("latency",latency)
-			print("client_clock",client_clock)
 			client_clock = value[0] + latency
 		"DetermineLatency":
 			latency_array.append((Time.get_ticks_msec()- value) / 2)
@@ -103,7 +99,6 @@ func DetermineLatency():
 			get_node("/root/SceneHandler/LoginScreen").PlayerPool(value)
 		"LoadPlayer":
 			#value = [stats[0],inventory[1],hotbar[2],equipitem[3],learnskill[4],nickname[5]
-			print("mapa", value[0]["M"])
 			PlayerData.SpawnClientPlayer(value)
 		"PlayerDie":
 			get_node("/root/SceneHandler/CanvasLayer/Hotbar").hide()
@@ -142,15 +137,16 @@ func DetermineLatency():
 				var attack_sound = load("res://Scenes/Sounds/FX/Attack1Sound.tscn")
 				var attack_sound_instance = attack_sound.instantiate()
 				add_child(attack_sound_instance)
-
-
-
+		"UpdateInventory":
+			print("despues de matar un enemigo recivo un nuevo inventario")
+			PlayerData.inventory_dic = value
+		"UpdateSkills":
+			PlayerData.learn_skill_dic = value
 
 @rpc func ServerSendDataToAllClients(key,value):
 	match key:
 		"DespawnPlayer":
 			#value = player_id
-			print("despawneando player aca aveces bugea pongo anti bug")
 			if !get_node("../SceneHandler/CiudadPrincipal"):
 				return
 			get_node("../SceneHandler/CiudadPrincipal").DespawnPlayer(value)
@@ -164,7 +160,6 @@ func DetermineLatency():
 
 
 @rpc func ServerSendWorldState(world_state):
-	#print("                     world_state",world_state)
 	var ciudad_principal_node = get_node_or_null("../SceneHandler/CiudadPrincipal")
 	if ciudad_principal_node == null:
 		return # Evita seguir si el nodo aún no existe

@@ -7,7 +7,7 @@
 texture = ExtResource("1_am3aq")
 region_rect = Rect2(92, 220, 24, 24)
 
-[node name="MultiSlot" type="Control"]
+[node name="MultiSlot" type="Control" groups=["MultiSlot"]]
 texture_filter = 1
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 3

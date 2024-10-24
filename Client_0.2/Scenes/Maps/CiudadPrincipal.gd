@@ -17,7 +17,6 @@ func SpawnNewPlayer(player_id, spawn_position,player_stats):
 	if int(player_id) == GameServer.multiplayer_api.get_unique_id():
 		return # No instancias a ti mismo
 	if not other_players_node.has_node(str(player_id)):
-		print("normal")
 		var new_player = player_spawn.instantiate()
 		new_player.position = spawn_position
 		new_player.name = str(player_id)
@@ -34,7 +33,6 @@ func DespawnPlayer(player_id):
 		eliminated_players = player_id
 
 func _physics_process(_delta):
-	#print("            world buffer",world_state_buffer)
 	var render_time = GameServer.client_clock - interpolation_offset
 	
 	
@@ -53,12 +51,9 @@ func _physics_process(_delta):
 func WithFutureState(render_time):
 
 	for player in world_state_buffer[2].keys():
-		#print("player en el for del wordstate ciudad principal ", player)
 		if str(player) in ["T", "CiudadPrincipal"]:
 			continue
 		if player == str(GameServer.multiplayer_api.get_unique_id()):
-			#print("ACA ME ENCUENTRO EN EL WORLD STATE CON ESTADO FUTURO ")
-			#print("worldstate mio",world_state_buffer[1][player])
 			continue
 		if not world_state_buffer[1].has(player):
 			continue
@@ -70,8 +65,6 @@ func WithFutureState(render_time):
 		else:
 			if  str(player) == str(eliminated_players):
 				return
-			print("aca estan ESTABA SPAWNEANDOME EN LOGIN ")
-			print("SPAWNEAR UN NUEVO JUGADOR QUE NO ESTABA ANTES")
 			var new_position = Vector2(world_state_buffer[2][player]["Px"], world_state_buffer[2][player]["Py"])
 			var player_stats = world_state_buffer[2][player]
 			SpawnNewPlayer(player, new_position,player_stats)
@@ -162,12 +155,9 @@ func NoFotureState(render_time):
 func WithFutureState(render_time):
 	var interpolation_factor = float(render_time - world_state_buffer[1]["T"]) / float(world_state_buffer[2]["T"] - world_state_buffer[1]["T"])
 	for player in world_state_buffer[2].keys():
-		#print("player en el for del wordstate ciudad principal ", player)
 		if str(player) in ["T", "CiudadPrincipal"]:
 			continue
 		if player == str(GameServer.multiplayer_api.get_unique_id()):
-			#print("ACA ME ENCUENTRO EN EL WORLD STATE CON ESTADO FUTURO ")
-			#print("worldstate mio",world_state_buffer[1][player])
 			continue
 		if not world_state_buffer[1].has(player):
 			continue
@@ -180,8 +170,6 @@ func WithFutureState(render_time):
 		else:
 			if  str(player) == str(eliminated_players):
 				return
-			print("aca estan ESTABA SPAWNEANDOME EN LOGIN ")
-			print("SPAWNEAR UN NUEVO JUGADOR QUE NO ESTABA ANTES")
 			var new_position = Vector2(world_state_buffer[2][player]["Px"], world_state_buffer[2][player]["Py"])
 			var player_stats = world_state_buffer[2][player]
 			SpawnNewPlayer(player, new_position,player_stats)

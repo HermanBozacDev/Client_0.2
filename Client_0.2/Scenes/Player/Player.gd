@@ -16,14 +16,16 @@ var player_view = preload("res://Scenes/UI/PlayerView.tscn")
 @onready var animation_tree = get_node("AnimationTree")
 @onready var animation_mode = animation_tree.get("parameters/playback")
 
+@onready var canvas_node =  get_node("/root/SceneHandler/CanvasLayer")
+
 func _ready() -> void:
 	if PlayerData.player_load == true:
 		pass
 	else:
 		var hotbar_instance = hotbar.instantiate()
-		get_node("/root/SceneHandler/CanvasLayer").add_child(hotbar_instance)
+		canvas_node.add_child(hotbar_instance)
 		var player_view_instance = player_view.instantiate()
-		get_node("/root/SceneHandler/CanvasLayer").add_child(player_view_instance)
+		canvas_node.add_child(player_view_instance)
 	set_physics_process(false)
 
 func DefinePlayerState():
@@ -37,9 +39,15 @@ func DefinePlayerState():
 	var key = "PlayerState"
 	GameServer.ClientSendDataToServer(key,player_state)
 
-	
-	
-	
+func ClearOldMenus():
+	for menu in get_tree().get_nodes_in_group("Menu"):
+		var node_name = menu.name
+		canvas_node.get_node(str(node_name)).queue_free()
+func ClearOldMultiPanel():
+	for multi_panel in get_tree().get_nodes_in_group("Windows"):
+		var node_name = multi_panel.name
+		canvas_node.get_node(str(node_name)).queue_free()
+
 func set_variables():
 	#fire_direction = (get_angle_to(get_global_mouse_position()) / 3.14) * 100
 	angle_to_mouse_position = get_angle_to(get_global_mouse_position())
@@ -47,17 +55,15 @@ func set_variables():
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("i"):
+		ClearOldMenus()
+		ClearOldMultiPanel()
 		if windows == false:
 			var inventory_instance = inventory.instantiate()
+			canvas_node.add_child(inventory_instance)
 			windows = true
-			get_parent().get_parent().get_parent().get_node("CanvasLayer").add_child(inventory_instance)
-			var inventory_position = Vector2(124,70)
-			get_parent().get_parent().get_parent().get_node("CanvasLayer/MultiPanel").set_position(inventory_position)
 		else:
-			var actual_window = get_tree().get_nodes_in_group("Windows")
-			for window in actual_window:
-				get_parent().get_parent().get_parent().get_node("CanvasLayer/MultiPanel").queue_free()
 			windows = false
+
 	#if Input.is_action_pressed("SpaceBar"):
 	#	PlayerData.PrepareTestAtaack()
 	#if Input.is_action_pressed("S"):

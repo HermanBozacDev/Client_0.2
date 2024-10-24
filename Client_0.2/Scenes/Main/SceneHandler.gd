@@ -29,7 +29,6 @@ func SetMapThenDie(client_player_instance,map):
 		"CiudadPrincipal":
 				var mapaCiudadPrincipal = ciudadPrincipal.instantiate()
 				mapaCiudadPrincipal.name = "CiudadPrincipal"
-				print("")
 				add_child(mapaCiudadPrincipal)
 				get_node("CiudadPrincipal/MapElements").add_child(client_player_instance)
 				get_node("CiudadPrincipal").add_child(map_music)

@@ -149,7 +149,6 @@ func _on_create_new_player_pressed() -> void:
 """LOAD CHARACTER"""
 
 func PlayerPool(new_player_pool):
-	print("new_player_pool",new_player_pool)
 	player_pool = new_player_pool
 	for acount in new_player_pool:
 		for character in new_player_pool[acount]:

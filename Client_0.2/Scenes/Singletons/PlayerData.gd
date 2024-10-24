@@ -3,6 +3,7 @@ extends Node
 var key_correlative
 var key_id
 var key_type
+var key_group
 var key_to_move
 var last_multi_panel
 var move_item
@@ -30,10 +31,6 @@ var skill_instance
 
 
 
-
-func SendNewHotBar():
-	var key = "Hotbar"
-	GameServer.ClientSendDataToServer(key,hot_bar_dic)
 
 func SendNewInventory():
 	var key = "Inventory"
@@ -71,12 +68,11 @@ func KeyHotBarStateMachine():
 """VERIFICACION DE SKILLS"""
 
 func Match_Skill():
-	print("llego?")
 	match PlayerData.stats_dic["type"]:
 		"fighter":
 			PlayerData.procesando_boton = false
-			print("PlayerData.learn_skill_dic",PlayerData.learn_skill_dic)
-			print("id_boton_apretado",id_boton_apretado)
+			#print("PlayerData.learn_skill_dic",PlayerData.learn_skill_dic)
+			#print("id_boton_apretado",id_boton_apretado)
 			match PlayerData.learn_skill_dic[id_boton_apretado][2]:
 				"RangedSingleTargetSkill":
 					RangedSingleTargetSkill()
@@ -114,7 +110,6 @@ func RangedSingleTargetSkill():
 	get_tree().get_nodes_in_group("Jugador")[0].Attack(skill_instance.rotation,skill_instance.position,id_boton_apretado,skill_instance,attack_type)
 
 func TargetBuffSkill():
-	print(" averrrrr")
 	var skill = preload("res://Scenes/Skills/TargetBuff.tscn")
 	skill_instance = skill.instantiate()
 	skill_instance.position = get_tree().get_nodes_in_group("Jugador")[0].get_global_mouse_position()

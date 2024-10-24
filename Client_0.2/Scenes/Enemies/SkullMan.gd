@@ -13,8 +13,6 @@ var experience
 
 func _physics_process(_delta):
 	get_node("Label").set_text(str(state))
-	#print("state",state)
-	#print("animation_mode",animation_mode)
 	
 
 func _ready():
@@ -79,7 +77,6 @@ func HitEffect():
 
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
-	print("termine animacion de ataque")
 	animation_mode.travel("Idle")
 #	var animation_vector =  get_parent().get_parent().get_parent().world_state_buffer[1]["CiudadPrincipal"][get_name()]["A"]
 #	animation_tree.set("parameters/Idle/blend_position", animation_vector)
