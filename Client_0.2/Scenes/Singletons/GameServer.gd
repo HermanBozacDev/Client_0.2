@@ -10,6 +10,7 @@ var decimal_collector : float = 0
 var latency_array = []
 var latency = 0
 var delta_latency = 0 
+var is_respawning = false
 
 """FUNCIONES DE CONFIGURACION PRINCIPALES"""
 
@@ -54,7 +55,7 @@ func DetermineLatency():
 @rpc func ClientSendDataToServer(key, value):
 	rpc_id(1,"ClientSendDataToServer",key, value)
 
-@rpc func ServerSendDataToOneClient(player_id,key,value):
+@rpc func ServerSendDataToOneClient(_player_id,key,value):
 	match key:
 		"FetchServerTime":
 			print("server time",value[0],"client time", value[1])
@@ -104,6 +105,44 @@ func DetermineLatency():
 			#value = [stats[0],inventory[1],hotbar[2],equipitem[3],learnskill[4],nickname[5]
 			print("mapa", value[0]["M"])
 			PlayerData.SpawnClientPlayer(value)
+		"PlayerDie":
+			get_node("/root/SceneHandler/CanvasLayer/Hotbar").hide()
+			get_node("/root/SceneHandler/CanvasLayer/PlayerView").hide()
+			get_node("/root/SceneHandler/CanvasLayer/Dead").show()
+			if is_respawning:
+				return  # Evitar procesamiento duplicado de la muerte
+			is_respawning = true
+			print("Player is dying on the client...")
+			# Desaparece al jugador actual
+			get_node("/root/SceneHandler/CiudadPrincipal/MapElements/Player").queue_free()
+			# Espera antes de respawn
+			await get_tree().create_timer(2).timeout
+			# Carga y reaparece al nuevo jugador
+			PlayerData.player_load = true
+			var client_player_scene = load("res://Scenes/Player/player.tscn")
+			var client_player_instance = client_player_scene.instantiate()
+			PlayerData.stats_dic["M"] = "CiudadPrincipal"
+			PlayerData.stats_dic["Px"] = 0
+			PlayerData.stats_dic["Py"] = 0
+			
+			var spawn_point = Vector2.ZERO
+			client_player_instance.map = PlayerData.stats_dic["M"]
+			get_node("../SceneHandler").SetMapThenDie(client_player_instance, "CiudadPrincipal")
+			# Espera para asegurarse de que el jugador reaparezca correctamente
+			await get_tree().create_timer(1).timeout
+			get_node("/root/SceneHandler/CanvasLayer/Hotbar").show()
+			get_node("/root/SceneHandler/CanvasLayer/PlayerView").show()
+			get_node("/root/SceneHandler/CanvasLayer/Dead").hide()
+			# Reubicar al nuevo jugador
+			get_parent().get_node("SceneHandler/" + str(PlayerData.stats_dic["M"]) + "/MapElements/Player").position = spawn_point
+			get_parent().get_node("SceneHandler/" + str(PlayerData.stats_dic["M"]) + "/MapElements/Player").set_physics_process(true)
+			# Reinicia la bandera de respawn
+			is_respawning = false
+		"SoundFx":
+				var attack_sound = load("res://Scenes/Sounds/FX/Attack1Sound.tscn")
+				var attack_sound_instance = attack_sound.instantiate()
+				add_child(attack_sound_instance)
+
 
 
 
@@ -115,20 +154,18 @@ func DetermineLatency():
 			if !get_node("../SceneHandler/CiudadPrincipal"):
 				return
 			get_node("../SceneHandler/CiudadPrincipal").DespawnPlayer(value)
+		"SpawnAttack":
+			#value = [a_position, animation_vector, spawn_time, a_rotation , map,player_id]
+			if value[5] == multiplayer_api.get_unique_id():
+				pass # this would be a moment to correct side predicctions
+			else:
+				get_node("/root/SceneHandler/" + str(value[4]) +  "/MapElements/OtherPlayers/" + str( value[5])).attack_dict[value[2]] = {"Position" : value[0], "AnimationVector" : value[1],"Rotation": value[3]}
+				get_node("/root/SceneHandler/" + str(value[4]) +  "/MapElements/OtherPlayers/" + str( value[5])).attack()
+
 
 @rpc func ServerSendWorldState(world_state):
-	#print("world_state",world_state)
-	for player in world_state:
-		if str(player) == "T":
-			continue
-		if str(player) == "CiudadPrincipal":
-			continue
-		if str(player) == str(multiplayer_api.get_remote_sender_id()):
-			PlayerData.state_dic = world_state[player]
-
-				
-		else:
-			var ciudad_principal_node = get_node_or_null("../SceneHandler/CiudadPrincipal")
-			if ciudad_principal_node == null:
-				return # Evita seguir si el nodo aún no existe
-			get_node("../SceneHandler/" + "CiudadPrincipal").UpdateWorldState(world_state)
+	print("                     world_state",world_state)
+	var ciudad_principal_node = get_node_or_null("../SceneHandler/CiudadPrincipal")
+	if ciudad_principal_node == null:
+		return # Evita seguir si el nodo aún no existe
+	ciudad_principal_node.UpdateWorldState(world_state)

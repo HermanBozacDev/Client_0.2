@@ -13,10 +13,12 @@ var experience
 
 func _physics_process(_delta):
 	get_node("Label").set_text(str(state))
+	#print("state",state)
+	#print("animation_mode",animation_mode)
 	
 
 func _ready():
-	pass
+	animation_mode.start("Idle")
 
 func MoveEnemy(new_position):
 	set_position(new_position)
@@ -38,8 +40,29 @@ func Health(health):
 		if current_hp <= 0:
 			OnDeath()
 
-func AnimationMode(_animation_vector):
-	pass
+
+
+
+
+
+func AnimationMode(animation_vector):
+	if state == "Idle":
+		animation_mode.travel("Idle")
+		animation_tree.set("parameters/Idle/blend_position", animation_vector)
+	elif state == "Wander":
+		animation_mode.travel("Walk")
+		animation_tree.set("parameters/Walk/blend_position", animation_vector)
+	elif state == "Chase":
+		animation_mode.travel("Walk")
+		animation_tree.set("parameters/Walk/blend_position", animation_vector)
+	elif state == "Dead":
+		animation_mode.travel("Dead")
+		animation_tree.set("parameters/Dead/blend_position", animation_vector)
+	elif state == "Attack":
+
+		animation_mode.travel("Attack")
+		animation_tree.set("parameters/Attack/blend_position", animation_vector)
+
 
 
 func OnDeath():
@@ -53,3 +76,10 @@ func OnDeath():
 
 func HitEffect():
 	pass
+
+
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+	print("termine animacion de ataque")
+	animation_mode.travel("Idle")
+	var animation_vector =  get_parent().get_parent().get_parent().world_state_buffer[1]["CiudadPrincipal"][get_name()]["A"]
+	animation_tree.set("parameters/Idle/blend_position", animation_vector)

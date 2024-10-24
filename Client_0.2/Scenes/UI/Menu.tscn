@@ -1,0 +1,296 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd1iwkhd3wdud"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Menu.gd" id="1_hsgkd"]
+[ext_resource type="Texture2D" uid="uid://bs3i47a078ar0" path="res://Resources/GUI/Button_normal.png" id="2_nw3p8"]
+[ext_resource type="Texture2D" uid="uid://b2mg5jll3m07p" path="res://Resources/GUI/Button_pressed.png" id="3_ug52j"]
+
+[node name="Menu" type="Control" groups=["Menu"]]
+custom_minimum_size = Vector2(32, 128)
+layout_mode = 3
+anchor_left = 0.033
+anchor_top = -0.05
+anchor_right = 0.1
+anchor_bottom = 0.35
+offset_left = 0.16
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hsgkd")
+
+[node name="Inventory" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(32, 128)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_right = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="I" type="VBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="Use" type="Control" parent="Inventory/I"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Use" type="TextureButton" parent="Inventory/I/Use"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_nw3p8")
+texture_pressed = ExtResource("3_ug52j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="Inventory/I/Use/Use"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "USE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Equip" type="Control" parent="Inventory/I"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Equip" type="TextureButton" parent="Inventory/I/Equip"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_nw3p8")
+texture_pressed = ExtResource("3_ug52j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="Inventory/I/Equip/Equip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "EQUIP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Move" type="Control" parent="Inventory/I"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Move" type="TextureButton" parent="Inventory/I/Move"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_nw3p8")
+texture_pressed = ExtResource("3_ug52j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="Inventory/I/Move/Move"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Drop" type="Control" parent="Inventory/I"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Drop" type="TextureButton" parent="Inventory/I/Drop"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_nw3p8")
+texture_pressed = ExtResource("3_ug52j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="Inventory/I/Drop/Drop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "DROP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EquipedItems" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Info" type="Control" parent="EquipedItems"]
+layout_mode = 2
+
+[node name="Info" type="TextureButton" parent="EquipedItems/Info"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_nw3p8")
+texture_pressed = ExtResource("3_ug52j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="EquipedItems/Info/Info"]
+layout_mode = 1
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 7
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Unequip" type="Control" parent="EquipedItems"]
+layout_mode = 2
+
+[node name="Unequip" type="TextureButton" parent="EquipedItems/Unequip"]
+texture_filter = 1
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_nw3p8")
+texture_pressed = ExtResource("3_ug52j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="EquipedItems/Unequip/Unequip"]
+layout_mode = 1
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 7
+text = "LEAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EquipedExtraItems" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Info" type="Control" parent="EquipedExtraItems"]
+layout_mode = 2
+
+[node name="Info" type="TextureButton" parent="EquipedExtraItems/Info"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_nw3p8")
+texture_pressed = ExtResource("3_ug52j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="EquipedExtraItems/Info/Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -33.0
+offset_right = -16.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Unequip" type="Control" parent="EquipedExtraItems"]
+layout_mode = 2
+
+[node name="Unequip" type="TextureButton" parent="EquipedExtraItems/Unequip"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_nw3p8")
+texture_pressed = ExtResource("3_ug52j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="EquipedExtraItems/Unequip/Unequip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -33.0
+offset_right = -16.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "LEAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Inventory/I/Use/Use" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="Inventory/I/Equip/Equip" to="." method="_on_equip_pressed"]
+[connection signal="pressed" from="Inventory/I/Move/Move" to="." method="_on_move_pressed"]
+[connection signal="pressed" from="Inventory/I/Drop/Drop" to="." method="_on_drop_pressed"]

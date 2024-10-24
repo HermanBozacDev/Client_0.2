@@ -80,9 +80,12 @@ func _on_login_pressed() -> void:
 
 """USER OPTIONS"""
 func _on_back_pressed() -> void:
+	for node in get_tree().get_nodes_in_group("LoadSlot"):
+		node.queue_free()
 	nickname = ""
 	new_class = ""
 	new_type = ""
+	load_player.hide()
 	select_class.hide()
 	select_type.hide()
 	select_name.hide()
@@ -166,7 +169,7 @@ func OnLoadPressed(new_nickname):
 
 
 	
-func OnDeletePressed(new_nickname):
+func OnDeletePressed(_new_nickname):
 	pass
 	#GameServer.RemoveCharacterFromAccount(new_nickname, username)
 	

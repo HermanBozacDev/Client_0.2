@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dku4oy7ftbkg"]
+
+[ext_resource type="AudioStream" uid="uid://dua5n0l7pnul2" path="res://Resources/Sounds/EnemyAttacks/Attack1.wav" id="1_w38ph"]
+[ext_resource type="Script" path="res://Scenes/Sounds/FX/Attack1Sound.gd" id="2_81uhx"]
+
+[node name="Attack1Sound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_w38ph")
+autoplay = true
+script = ExtResource("2_81uhx")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
