@@ -538,6 +538,7 @@ texture_filter = 1
 texture = ExtResource("1_0qlmt")
 hframes = 10
 vframes = 4
+frame = 3
 
 [node name="Boots" type="Sprite2D" parent="."]
 texture_filter = 1

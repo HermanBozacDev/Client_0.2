@@ -71,12 +71,18 @@ func KeyHotBarStateMachine():
 """VERIFICACION DE SKILLS"""
 
 func Match_Skill():
+	print("llego?")
 	match PlayerData.stats_dic["type"]:
 		"fighter":
 			PlayerData.procesando_boton = false
+			print("PlayerData.learn_skill_dic",PlayerData.learn_skill_dic)
+			print("id_boton_apretado",id_boton_apretado)
 			match PlayerData.learn_skill_dic[id_boton_apretado][2]:
 				"RangedSingleTargetSkill":
 					RangedSingleTargetSkill()
+				"TargetBuff":
+					print("entre en target buff alfin")
+					TargetBuffSkill()
 		"wizard":
 			print("soy wizard")
 			#get_tree().get_nodes_in_group("Jugador")[0].state = get_tree().get_nodes_in_group("Jugador")[0].CAST
@@ -96,17 +102,8 @@ func Match_Skill():
 
 
 func RangedSingleTargetSkill():
-	print("ranged single PASEEEEE",id_boton_apretado)
 	var skill = preload("res://Scenes/Skills/SingleTargetRangedSkill.tscn")
 	skill_instance = skill.instantiate()
-	match id_boton_apretado:
-		"WindStrike":
-			SpawnRangedSingleTargetSkill(skill_instance)
-
-
-"""RANGED SINGLE TARGET """
-func SpawnRangedSingleTargetSkill(skill_instance):
-	#apply_coldown_in_hotbar()
 	get_tree().get_nodes_in_group("Jugador")[0].set_variables()
 	get_tree().get_nodes_in_group("Jugador")[0].get_node("TurnAxis").rotation = get_tree().get_nodes_in_group("Jugador")[0].angle_to_mouse_position
 	skill_instance.rotation = get_tree().get_nodes_in_group("Jugador")[0].get_node("TurnAxis").rotation
@@ -116,9 +113,12 @@ func SpawnRangedSingleTargetSkill(skill_instance):
 	var attack_type = PlayerData.learn_skill_dic[id_boton_apretado][2]
 	get_tree().get_nodes_in_group("Jugador")[0].Attack(skill_instance.rotation,skill_instance.position,id_boton_apretado,skill_instance,attack_type)
 
-
-""" LAST CONFIRMATIONS OF TYPE IN SPECIFIC OBJECTS """
-
+func TargetBuffSkill():
+	print(" averrrrr")
+	var skill = preload("res://Scenes/Skills/TargetBuff.tscn")
+	skill_instance = skill.instantiate()
+	skill_instance.position = get_tree().get_nodes_in_group("Jugador")[0].get_global_mouse_position()
+	get_tree().get_nodes_in_group("Jugador")[0].get_parent().add_child(skill_instance)
 
 
 

@@ -88,8 +88,10 @@ func HotbarLoad():
 
 func _on_texture_pressed() -> void:
 	print("si")
+	print(hotbar_id,"  ",hotbar_root_id)
 	ClearOldMenus()
 	if PlayerData.move_item:
+		print("osea")
 		MoveItem()
 	else:
 		if group == "hotbar":
@@ -239,6 +241,7 @@ func MoveItem():
 			PlayerData.move_item = false
 			PlayerData.selected = false
 		"skills":
+			print("aca entra=")
 			id = PlayerData.key_id
 			PlayerData.hot_bar_dic[get_name()] = [id]
 			print("skils movidos, ",PlayerData.hot_bar_dic,PlayerData.learn_skill_dic)

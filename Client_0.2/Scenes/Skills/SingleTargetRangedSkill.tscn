@@ -1,79 +1,71 @@
-[gd_scene load_steps=14 format=3 uid="uid://1ocpjcicw4bi"]
+[gd_scene load_steps=13 format=3 uid="uid://1ocpjcicw4bi"]
 
 [ext_resource type="Script" path="res://Scenes/Skills/SingleTargetRangedSkill.gd" id="1_rrusx"]
-[ext_resource type="Texture2D" uid="uid://btrqdhi7je5wf" path="res://Resources/Skills/FX/Fire_Ball.png" id="1_tl4g0"]
-[ext_resource type="Texture2D" uid="uid://bxoacqxjs7rhn" path="res://Resources/Skills/FX/Ice Spear.png" id="2_och5u"]
+[ext_resource type="Texture2D" uid="uid://njrudlvhogoi" path="res://Resources/Skills/FX/WaterArrow.png" id="2_cx1nr"]
+[ext_resource type="Texture2D" uid="uid://lafhkn8bl2lp" path="res://Resources/Skills/FX/WaterBubble.png" id="3_ymlsb"]
+[ext_resource type="Texture2D" uid="uid://dhqrv7wxjxfn7" path="res://Resources/Skills/FX/WindStrike.png" id="4_prjsy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xg2gc"]
 radius = 4.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cn1ss"]
-atlas = ExtResource("1_tl4g0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ioed"]
+atlas = ExtResource("2_cx1nr")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l4mf1"]
-atlas = ExtResource("1_tl4g0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfg8s"]
+atlas = ExtResource("2_cx1nr")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_edaww"]
-atlas = ExtResource("1_tl4g0")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a7ycu"]
-atlas = ExtResource("1_tl4g0")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujiv3"]
-atlas = ExtResource("2_och5u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gir4"]
+atlas = ExtResource("3_ymlsb")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fr385"]
-atlas = ExtResource("2_och5u")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf73n"]
+atlas = ExtResource("3_ymlsb")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fu8m3"]
-atlas = ExtResource("2_och5u")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_spfpy"]
+atlas = ExtResource("4_prjsy")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gs4p2"]
-atlas = ExtResource("2_och5u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr4jf"]
+atlas = ExtResource("4_prjsy")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3mac7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cn1ss")
+"texture": SubResource("AtlasTexture_3ioed")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l4mf1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_edaww")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a7ycu")
+"texture": SubResource("AtlasTexture_sfg8s")
 }],
 "loop": true,
-"name": &"Fireball",
-"speed": 10.0
+"name": &"WaterArrow",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ujiv3")
+"texture": SubResource("AtlasTexture_5gir4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fr385")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fu8m3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gs4p2")
+"texture": SubResource("AtlasTexture_tf73n")
 }],
 "loop": true,
-"name": &"IceSpear",
-"speed": 10.0
+"name": &"WaterBubble",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spfpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr4jf")
+}],
+"loop": true,
+"name": &"WindStrike",
+"speed": 3.0
 }]
 
 [node name="SingleTargetRangedSkill" type="RigidBody2D"]
@@ -91,6 +83,6 @@ shape = SubResource("CircleShape2D_xg2gc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3mac7")
-animation = &"Fireball"
+animation = &"WaterBubble"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

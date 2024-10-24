@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdivpexe4h037"]
+
+[ext_resource type="Script" path="res://Scenes/Skills/TargetBuff.gd" id="1_wqa55"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17hq0"]
+radius = 8.0
+
+[node name="TargetBuff" type="Node2D"]
+script = ExtResource("1_wqa55")
+
+[node name="TargetArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea"]
+shape = SubResource("CircleShape2D_17hq0")
+
+[connection signal="body_entered" from="TargetArea" to="." method="_on_target_area_body_entered"]

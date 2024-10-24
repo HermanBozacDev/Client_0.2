@@ -88,6 +88,14 @@ i={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="PlayerBody"
+2d_physics/layer_3="EnemyBody"
+2d_physics/layer_4="RangedSingleTargetSkill"
+2d_physics/layer_5="TargetBuff"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

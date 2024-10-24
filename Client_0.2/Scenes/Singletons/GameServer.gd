@@ -164,7 +164,7 @@ func DetermineLatency():
 
 
 @rpc func ServerSendWorldState(world_state):
-	print("                     world_state",world_state)
+	#print("                     world_state",world_state)
 	var ciudad_principal_node = get_node_or_null("../SceneHandler/CiudadPrincipal")
 	if ciudad_principal_node == null:
 		return # Evita seguir si el nodo aún no existe

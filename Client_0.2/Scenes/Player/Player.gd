@@ -96,3 +96,9 @@ func Attack(a_rotation,a_position,attack_name,skill_instance,attack_type):
 	var key = "PlayerAttack"
 	GameServer.ClientSendDataToServer(key, value)
 	get_parent().add_child(skill_instance)
+
+
+
+func TargetBuff():
+	print("llego aca")
+	
