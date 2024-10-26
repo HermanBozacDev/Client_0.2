@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1ocpjcicw4bi"]
+[gd_scene load_steps=14 format=3 uid="uid://1ocpjcicw4bi"]
 
 [ext_resource type="Script" path="res://Scenes/Skills/SingleTargetRangedSkill.gd" id="1_rrusx"]
 [ext_resource type="Texture2D" uid="uid://njrudlvhogoi" path="res://Resources/Skills/FX/WaterArrow.png" id="2_cx1nr"]
@@ -68,9 +68,12 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3yjkh"]
+radius = 2.0
+
 [node name="SingleTargetRangedSkill" type="RigidBody2D"]
-collision_layer = 64
-collision_mask = 7
+collision_layer = 0
+collision_mask = 0
 mass = 0.01
 gravity_scale = 0.01
 contact_monitor = true
@@ -85,4 +88,11 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3mac7")
 animation = &"WaterBubble"
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="SkillHitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillHitbox"]
+shape = SubResource("CircleShape2D_3yjkh")
+
+[connection signal="body_entered" from="SkillHitbox" to="." method="_on_skill_hitbox_body_entered"]

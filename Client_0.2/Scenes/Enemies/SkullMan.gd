@@ -19,6 +19,7 @@ func _ready():
 	animation_mode.start("Idle")
 
 func MoveEnemy(new_position):
+	#print("LLEGO A ENTRAR SI")
 	set_position(new_position)
 	
 func HealthBarUpdate():

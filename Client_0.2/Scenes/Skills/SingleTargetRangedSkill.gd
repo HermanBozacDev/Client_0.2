@@ -17,10 +17,11 @@ func SelfDestruct():
 	queue_free()
 
 
-func _on_body_entered(_body: Node) -> void:
-	get_node("CollisionShape2D").set_deferred("disabled", true)
-	self.hide()
-
-
-
-		
+func _on_skill_hitbox_body_entered(body: Node2D) -> void:
+	if processing_body == false:
+		processing_body = true
+		print("colision ahora si con body")
+		get_node("CollisionShape2D").set_deferred("disabled", true)
+		self.hide()
+	else:
+		return

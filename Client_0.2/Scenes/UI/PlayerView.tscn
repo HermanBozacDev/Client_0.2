@@ -51,31 +51,6 @@ grow_vertical = 2
 texture = ExtResource("2_khxa6")
 stretch_mode = 2
 
-[node name="ExperienceBar" type="TextureProgressBar" parent="Panel"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 48.0
-offset_right = 120.0
-offset_bottom = 56.0
-value = 70.0
-nine_patch_stretch = true
-texture_under = ExtResource("3_o2dd2")
-texture_over = ExtResource("4_p3l2o")
-texture_progress = ExtResource("3_o2dd2")
-tint_under = Color(0.106237, 0.106237, 0.106237, 1)
-tint_over = Color(0.561863, 0.597332, 0.52769, 1)
-
-[node name="NicknameText" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = 5.0
-offset_right = 120.0
-offset_bottom = 21.0
-theme_override_font_sizes/font_size = 8
-text = "pepito"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Level" type="Panel" parent="Panel"]
 layout_mode = 0
 offset_left = 44.0
@@ -92,7 +67,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 8
-text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NicknameText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 5.0
+offset_right = 120.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -103,7 +87,6 @@ offset_left = 48.0
 offset_top = 24.0
 offset_right = 120.0
 offset_bottom = 32.0
-value = 70.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_o2dd2")
 texture_over = ExtResource("4_p3l2o")
@@ -112,6 +95,28 @@ tint_under = Color(0.106237, 0.106237, 0.106237, 1)
 tint_over = Color(0.561863, 0.597332, 0.52769, 1)
 tint_progress = Color(0.658687, 0.055466, 9.62615e-08, 1)
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CurrentLife" type="Label" parent="Panel/Health/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+
+[node name="Label2" type="Label" parent="Panel/Health/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "/"
+
+[node name="MaxLife" type="Label" parent="Panel/Health/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+
 [node name="Mana" type="TextureProgressBar" parent="Panel"]
 custom_minimum_size = Vector2(64, 8)
 layout_mode = 0
@@ -119,7 +124,6 @@ offset_left = 48.0
 offset_top = 34.0
 offset_right = 120.0
 offset_bottom = 42.0
-value = 70.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_o2dd2")
 texture_over = ExtResource("4_p3l2o")
@@ -127,3 +131,67 @@ texture_progress = ExtResource("3_o2dd2")
 tint_under = Color(0.106237, 0.106237, 0.106237, 1)
 tint_over = Color(0.561863, 0.597332, 0.52769, 1)
 tint_progress = Color(0.0740372, 0.186445, 0.809438, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Mana"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CurrentMana" type="Label" parent="Panel/Mana/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+
+[node name="Label2" type="Label" parent="Panel/Mana/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "/"
+
+[node name="MaxMana" type="Label" parent="Panel/Mana/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="Panel"]
+custom_minimum_size = Vector2(116, 8)
+layout_mode = 2
+offset_left = 6.0
+offset_top = 49.0
+offset_right = 106.0
+offset_bottom = 49.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_o2dd2")
+texture_over = ExtResource("4_p3l2o")
+texture_progress = ExtResource("3_o2dd2")
+tint_under = Color(0.106237, 0.106237, 0.106237, 1)
+tint_over = Color(0.561863, 0.597332, 0.52769, 1)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/ExperienceBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CurrentExp" type="Label" parent="Panel/ExperienceBar/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+
+[node name="Label2" type="Label" parent="Panel/ExperienceBar/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "/"
+
+[node name="MaxExp" type="Label" parent="Panel/ExperienceBar/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="RegularUpdate"]

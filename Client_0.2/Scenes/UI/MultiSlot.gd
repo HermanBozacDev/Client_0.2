@@ -47,10 +47,8 @@ func EquipLoad():
 		#PlayerData.SendNewInventory()
 
 func HotbarLoad():
-	print("aca iporta ")
 	if PlayerData.hot_bar_dic.keys().has(get_name()):
 		id = PlayerData.hot_bar_dic[get_name()][0]
-		print("aca iporta ",id)
 		if PlayerData.learn_skill_dic.has(id):
 			var icon = load("res://Resources/Skills/Icons/" + id + "_icon.png")
 			get_node("texture").set_texture_normal(icon)
@@ -234,10 +232,8 @@ func MoveItem():
 			PlayerData.move_item = false
 			PlayerData.selected = false
 		"skills":
-			print("skill")
 			ClearAllSelectedStates()
 			return
-			print("aca entra=")
 			id = PlayerData.key_id
 			PlayerData.hot_bar_dic[get_name()] = [id]
 			print("skils movidos, ",PlayerData.hot_bar_dic,PlayerData.learn_skill_dic)

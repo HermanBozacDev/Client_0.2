@@ -34,24 +34,24 @@ func DespawnPlayer(player_id):
 
 func _physics_process(_delta):
 	var render_time = GameServer.client_clock - interpolation_offset
-	
-	
 	# Mantén solo los 3 estados más recientes
 	if world_state_buffer.size() > 3:
 		world_state_buffer.remove_at(0)
-	
 	if world_state_buffer.size() > 1:
+		#print("WORLD STATE EN CIUDAD PRINCIPAL",world_state_buffer[0]["CiudadPrincipal"])
 		if world_state_buffer.size() > 2 and render_time > world_state_buffer[2].T:
 			world_state_buffer.remove_at(0)
 		if world_state_buffer.size() > 2:
-			WithFutureState(render_time)
+			WithFutureState()
 		elif render_time > world_state_buffer[1].T:
-			NoFotureState(render_time)
+			NoFotureState()
 
-func WithFutureState(render_time):
-
+func WithFutureState():
 	for player in world_state_buffer[2].keys():
+		#print("player with sfuture state",player)
 		if str(player) in ["T", "CiudadPrincipal"]:
+			continue
+		if str(player) == "Mapa2":
 			continue
 		if player == str(GameServer.multiplayer_api.get_unique_id()):
 			continue
@@ -70,7 +70,7 @@ func WithFutureState(render_time):
 			SpawnNewPlayer(player, new_position,player_stats)
 
 
-
+	
 	for enemy in world_state_buffer[2]["CiudadPrincipal"].keys():
 		if not world_state_buffer[1]["CiudadPrincipal"].has(enemy):
 			#si no existia en el estado anterior
@@ -88,9 +88,11 @@ func WithFutureState(render_time):
 			else:
 				SpawnNewEnemy(enemy, world_state_buffer[2]["CiudadPrincipal"][enemy])
 
-func NoFotureState(render_time):
+func NoFotureState():
 	for player in world_state_buffer[1].keys():
 		if str(player) in ["T", "CiudadPrincipal"]:
+			continue
+		if str(player) == "Mapa2":
 			continue
 		if player == str(GameServer.multiplayer_api.get_unique_id()):
 			continue
@@ -105,6 +107,7 @@ func NoFotureState(render_time):
 
 
 func UpdateWorldState(world_state):
+	#print("funciona normal")
 	if world_state["T"] > last_world_state:
 		last_world_state = world_state["T"]
 		world_state_buffer.append(world_state)

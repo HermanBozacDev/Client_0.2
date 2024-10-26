@@ -90,6 +90,7 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = ExtResource("3_mv2ea")
 theme_override_styles/normal = ExtResource("2_jvgir")
 text = "12341234"
+secret = true
 
 [node name="Buttons" type="HBoxContainer" parent="Backgroun/Panel/LoginScreen"]
 layout_mode = 2
@@ -209,7 +210,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = ExtResource("3_mv2ea")
 theme_override_styles/normal = ExtResource("2_jvgir")
-text = "12341234"
+secret = true
 
 [node name="RepeatPassword" type="HBoxContainer" parent="Backgroun/Panel/CreateAccount/aux/aux"]
 layout_mode = 2
@@ -229,7 +230,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = ExtResource("3_mv2ea")
 theme_override_styles/normal = ExtResource("2_jvgir")
-text = "12341234"
+secret = true
 
 [node name="Buttons" type="VBoxContainer" parent="Backgroun/Panel/CreateAccount/aux"]
 layout_mode = 2
@@ -507,13 +508,17 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="SelectClass" type="VBoxContainer" parent="Backgroun/Panel/SelectClass"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Backgroun/Panel/SelectClass"]
+layout_mode = 2
+alignment = 1
+
+[node name="SelectClass" type="VBoxContainer" parent="Backgroun/Panel/SelectClass/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Elf" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+[node name="Elf" type="TextureButton" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass"]
 custom_minimum_size = Vector2(64, 24)
 layout_mode = 2
 texture_normal = ExtResource("4_53kv1")
@@ -521,7 +526,7 @@ texture_pressed = ExtResource("5_av2uu")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Elf"]
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/Elf"]
 custom_minimum_size = Vector2(64, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -534,7 +539,7 @@ text = "ELF"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DarkElf" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+[node name="DarkElf" type="TextureButton" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass"]
 custom_minimum_size = Vector2(64, 24)
 layout_mode = 2
 texture_normal = ExtResource("4_53kv1")
@@ -542,7 +547,7 @@ texture_pressed = ExtResource("5_av2uu")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/DarkElf"]
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/DarkElf"]
 custom_minimum_size = Vector2(64, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -555,7 +560,7 @@ text = "DARK ELF"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Human" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+[node name="Human" type="TextureButton" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass"]
 custom_minimum_size = Vector2(64, 24)
 layout_mode = 2
 texture_normal = ExtResource("4_53kv1")
@@ -563,7 +568,7 @@ texture_pressed = ExtResource("5_av2uu")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Human"]
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/Human"]
 custom_minimum_size = Vector2(64, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -576,7 +581,7 @@ text = "HUMAN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Orc" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+[node name="Orc" type="TextureButton" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass"]
 custom_minimum_size = Vector2(64, 24)
 layout_mode = 2
 texture_normal = ExtResource("4_53kv1")
@@ -584,7 +589,7 @@ texture_pressed = ExtResource("5_av2uu")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Orc"]
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/Orc"]
 custom_minimum_size = Vector2(64, 24)
 layout_mode = 1
 anchors_preset = 15
@@ -597,7 +602,7 @@ text = "ORC"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Dwarf" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+[node name="Dwarf" type="TextureButton" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass"]
 custom_minimum_size = Vector2(64, 24)
 layout_mode = 2
 texture_normal = ExtResource("4_53kv1")
@@ -605,7 +610,7 @@ texture_pressed = ExtResource("5_av2uu")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Dwarf"]
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/Dwarf"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -617,7 +622,11 @@ text = "DWARF"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Back" type="TextureButton" parent="Backgroun/Panel/SelectClass/SelectClass"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Backgroun/Panel/SelectClass/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="TextureButton" parent="Backgroun/Panel/SelectClass/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 texture_normal = ExtResource("4_53kv1")
@@ -625,7 +634,7 @@ texture_pressed = ExtResource("5_av2uu")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/SelectClass/Back"]
+[node name="Label" type="Label" parent="Backgroun/Panel/SelectClass/HBoxContainer/VBoxContainer/Back"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -703,11 +712,11 @@ vertical_alignment = 1
 [connection signal="pressed" from="Backgroun/Panel/SelectName/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/SelectType/Fighter" to="." method="_on_fighter_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/SelectType/Wizard" to="." method="_on_wizard_pressed"]
-[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Elf" to="." method="_on_elf_pressed"]
-[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/DarkElf" to="." method="_on_dark_elf_pressed"]
-[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Human" to="." method="_on_human_pressed"]
-[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Orc" to="." method="_on_orc_pressed"]
-[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Dwarf" to="." method="_on_dwarf_pressed"]
-[connection signal="pressed" from="Backgroun/Panel/SelectClass/SelectClass/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/Elf" to="." method="_on_elf_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/DarkElf" to="." method="_on_dark_elf_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/Human" to="." method="_on_human_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/Orc" to="." method="_on_orc_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/HBoxContainer/SelectClass/Dwarf" to="." method="_on_dwarf_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/SelectClass/HBoxContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/ConfirmScreen/VBoxContainer/CreateNewPlayer" to="." method="_on_create_new_player_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/ConfirmScreen/VBoxContainer/Back" to="." method="_on_back_pressed"]

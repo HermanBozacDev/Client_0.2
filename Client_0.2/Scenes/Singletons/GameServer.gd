@@ -10,7 +10,6 @@ var decimal_collector : float = 0
 var latency_array = []
 var latency = 0
 var delta_latency = 0 
-var is_respawning = false
 
 """FUNCIONES DE CONFIGURACION PRINCIPALES"""
 
@@ -85,54 +84,10 @@ func DetermineLatency():
 			else:
 				print("Login failed, please try again")
 				login_screen.ResetButtons()
-		"NewPlayerRegister":
-			#value[stats,skills_learn]
-			PlayerData.stats_dic = value[0]
-			PlayerData.learn_skill_dic = value[1]
-			PlayerData.player_name = value[2]
-			var client_player_scene = load("res://Scenes/Player/player.tscn")
-			var client_player_instance = client_player_scene.instantiate()
-			get_node("/root/SceneHandler").SetMap(client_player_instance,"CiudadPrincipal")
-			get_parent().get_node("SceneHandler/LoginScreen").hide()
-			get_parent().get_node("SceneHandler/" + "CiudadPrincipal" +  "/MapElements/Player").set_physics_process(true)
 		"PlayerPool":
 			get_node("/root/SceneHandler/LoginScreen").PlayerPool(value)
-		"LoadPlayer":
-			#value = [stats[0],inventory[1],hotbar[2],equipitem[3],learnskill[4],nickname[5]
-			PlayerData.SpawnClientPlayer(value)
 		"PlayerDie":
-			get_node("/root/SceneHandler/CanvasLayer/Hotbar").hide()
-			get_node("/root/SceneHandler/CanvasLayer/PlayerView").hide()
-			get_node("/root/SceneHandler/CanvasLayer/Dead").show()
-			if is_respawning:
-				return  # Evitar procesamiento duplicado de la muerte
-			is_respawning = true
-			print("Player is dying on the client...")
-			# Desaparece al jugador actual
-			get_node("/root/SceneHandler/CiudadPrincipal/MapElements/Player").queue_free()
-			# Espera antes de respawn
-			await get_tree().create_timer(2).timeout
-			# Carga y reaparece al nuevo jugador
-			PlayerData.player_load = true
-			var client_player_scene = load("res://Scenes/Player/player.tscn")
-			var client_player_instance = client_player_scene.instantiate()
-			PlayerData.stats_dic["M"] = "CiudadPrincipal"
-			PlayerData.stats_dic["Px"] = 0
-			PlayerData.stats_dic["Py"] = 0
-			
-			var spawn_point = Vector2.ZERO
-			client_player_instance.map = PlayerData.stats_dic["M"]
-			get_node("../SceneHandler").SetMapThenDie(client_player_instance, "CiudadPrincipal")
-			# Espera para asegurarse de que el jugador reaparezca correctamente
-			await get_tree().create_timer(1).timeout
-			get_node("/root/SceneHandler/CanvasLayer/Hotbar").show()
-			get_node("/root/SceneHandler/CanvasLayer/PlayerView").show()
-			get_node("/root/SceneHandler/CanvasLayer/Dead").hide()
-			# Reubicar al nuevo jugador
-			get_parent().get_node("SceneHandler/" + str(PlayerData.stats_dic["M"]) + "/MapElements/Player").position = spawn_point
-			get_parent().get_node("SceneHandler/" + str(PlayerData.stats_dic["M"]) + "/MapElements/Player").set_physics_process(true)
-			# Reinicia la bandera de respawn
-			is_respawning = false
+			PlayerData.SpawnClientPlayer(key,value)
 		"SoundFx":
 				var attack_sound = load("res://Scenes/Sounds/FX/Attack1Sound.tscn")
 				var attack_sound_instance = attack_sound.instantiate()
@@ -142,6 +97,12 @@ func DetermineLatency():
 			PlayerData.inventory_dic = value
 		"UpdateSkills":
 			PlayerData.learn_skill_dic = value
+		"NewPlayerRegister":
+			PlayerData.SpawnClientPlayer(key,value)
+		"LoadPlayer":
+			PlayerData.SpawnClientPlayer(key,value)
+		"Teleport":
+			PlayerData.SpawnClientPlayer(key,value)
 
 @rpc func ServerSendDataToAllClients(key,value):
 	match key:
@@ -160,7 +121,18 @@ func DetermineLatency():
 
 
 @rpc func ServerSendWorldState(world_state):
-	var ciudad_principal_node = get_node_or_null("../SceneHandler/CiudadPrincipal")
-	if ciudad_principal_node == null:
-		return # Evita seguir si el nodo aún no existe
-	ciudad_principal_node.UpdateWorldState(world_state)
+	#print("world_state",world_state)
+	for map in world_state.keys():
+		match map:
+			"CiudadPrincipal":
+				var ciudad_principal_node = get_node_or_null("../SceneHandler/CiudadPrincipal")
+				if ciudad_principal_node == null:
+					pass 
+				else:
+					ciudad_principal_node.UpdateWorldState(world_state)
+			"Mapa2":
+				var mapa2_node = get_node_or_null("../SceneHandler/Mapa2")
+				if mapa2_node == null:
+					pass 
+				else:
+					mapa2_node.UpdateWorldState(world_state)
