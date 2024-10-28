@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc6u1gkexav0u"
-path="res://.godot/imported/DarkElf.png-30777c27a1b9bae1d2b8f4fe1f14b768.ctex"
+uid="uid://dlx62rn1qlwjn"
+path="res://.godot/imported/Orc.png-ad52d8eb987c93b401a475faefefe990.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Players/DarkElf.png"
-dest_files=["res://.godot/imported/DarkElf.png-30777c27a1b9bae1d2b8f4fe1f14b768.ctex"]
+source_file="res://Resources/Players/Orc/Orc.png"
+dest_files=["res://.godot/imported/Orc.png-ad52d8eb987c93b401a475faefefe990.ctex"]
 
 [params]
 

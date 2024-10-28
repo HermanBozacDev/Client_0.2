@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1tm7f36byuo4"]
+
+[ext_resource type="Script" path="res://Scenes/Skills/FisicAttack.gd" id="1_3xye5"]
+
+[node name="FisicAttack" type="RayCast2D"]
+target_position = Vector2(0, 200)
+script = ExtResource("1_3xye5")

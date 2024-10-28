@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctdrq48x6vn8p"
-path="res://.godot/imported/Elf.png-3683ffbcf47ca24165d1dc316873a745.ctex"
+uid="uid://b4k1wwl4w2sca"
+path="res://.godot/imported/AlfombraAutotile.png-933f22be4799bccf83c2b61f77c29552.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Players/Players/Elf/Elf.png"
-dest_files=["res://.godot/imported/Elf.png-3683ffbcf47ca24165d1dc316873a745.ctex"]
+source_file="res://Resources/Tilesets/Autotiles/AlfombraAutotile.png"
+dest_files=["res://.godot/imported/AlfombraAutotile.png-933f22be4799bccf83c2b61f77c29552.ctex"]
 
 [params]
 

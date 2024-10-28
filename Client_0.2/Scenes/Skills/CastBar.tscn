@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkinc388lt5ck"]
+
+[ext_resource type="Texture2D" uid="uid://biufo2ea3clvg" path="res://Resources/GUI/HPBar.png" id="1_puwgi"]
+[ext_resource type="Texture2D" uid="uid://yd2siu0jrafs" path="res://Resources/GUI/BASEHPBar.png" id="2_nawuw"]
+
+[node name="CastBar" type="TextureProgressBar"]
+texture_filter = 1
+custom_minimum_size = Vector2(16, 0.5)
+offset_right = 16.0
+offset_bottom = 0.5
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_puwgi")
+texture_over = ExtResource("2_nawuw")
+texture_progress = ExtResource("2_nawuw")
+tint_under = Color(0, 0, 0, 0)
+tint_over = Color(0.219608, 0.211765, 0.176471, 0)
+tint_progress = Color(0.219608, 0.211765, 0.176471, 1)

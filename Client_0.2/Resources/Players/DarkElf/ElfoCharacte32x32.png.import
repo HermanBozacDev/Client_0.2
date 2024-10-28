@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjfosbqfngnw5"
-path="res://.godot/imported/Elf_Sit.png-4038fa765b30d2241a444d1683c0c2ae.ctex"
+uid="uid://hba60fsmvsbs"
+path="res://.godot/imported/ElfoCharacte32x32.png-0c6c156576902a72a1f29dbf92e39bd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Players/Elf_Sit.png"
-dest_files=["res://.godot/imported/Elf_Sit.png-4038fa765b30d2241a444d1683c0c2ae.ctex"]
+source_file="res://Resources/Players/DarkElf/ElfoCharacte32x32.png"
+dest_files=["res://.godot/imported/ElfoCharacte32x32.png-0c6c156576902a72a1f29dbf92e39bd6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3kof8w3dqi3a"
-path="res://.godot/imported/Human.png-5b6987405cca3388c88088f4f5cccffb.ctex"
+uid="uid://ctngebko77wns"
+path="res://.godot/imported/Dwarf.png-c1a013ae2d17606dad9307afa0fc1c13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Players/Players/Human/Human.png"
-dest_files=["res://.godot/imported/Human.png-5b6987405cca3388c88088f4f5cccffb.ctex"]
+source_file="res://Resources/Players/Dwarf/Dwarf.png"
+dest_files=["res://.godot/imported/Dwarf.png-c1a013ae2d17606dad9307afa0fc1c13.ctex"]
 
 [params]
 

@@ -49,7 +49,7 @@ func _physics_process(_delta):
 		elif render_time > world_state_buffer[1].T:
 			NoFotureState(render_time)
 
-func WithFutureState(render_time):
+func WithFutureState(_render_time):
 
 	for player in world_state_buffer[2].keys():
 		#print("PLAYER ",player)
@@ -85,15 +85,15 @@ func WithFutureState(render_time):
 			var animation_vector = world_state_buffer[1]["Mapa2"][enemy]["A"]
 			get_node("MapElements/Enemies/" + str(enemy)).state = world_state_buffer[1]["Mapa2"][enemy]["S"]
 			get_node("MapElements/Enemies/" + str(enemy)).MoveEnemy(new_position)
-			get_node("MapElements/Enemies/" + str(enemy)).Health(world_state_buffer[1]["Mapa2"][enemy]["H"]) 
+			get_node("MapElements/Enemies/" + str(enemy)).Health(world_state_buffer[1]["Mapa2"][enemy]["Health"]) 
 			get_node("MapElements/Enemies/" + str(enemy)).AnimationMode(animation_vector)
 		else:
-			if world_state_buffer[2]["Mapa2"][enemy]["H"] <= 0:
+			if world_state_buffer[2]["Mapa2"][enemy]["Health"] <= 0:
 				pass
 			else:
 				SpawnNewEnemy(enemy, world_state_buffer[2]["Mapa2"][enemy])
 
-func NoFotureState(render_time):
+func NoFotureState(_render_time):
 	for player in world_state_buffer[1].keys():
 		if str(player) in ["T", "CiudadPrincipal"]:
 			continue
@@ -123,8 +123,8 @@ func SpawnNewEnemy(enemy_id, enemy_dict):
 func SpawnSkullMan(enemy_id, enemy_dict):
 	var new_enemy = skullman.instantiate()
 	new_enemy.position = enemy_dict["P"]
-	new_enemy.max_hp = enemy_dict["mH"]
-	new_enemy.current_hp = enemy_dict["H"]
+	new_enemy.max_hp = enemy_dict["MHealth"]
+	new_enemy.current_hp = enemy_dict["Health"]
 	new_enemy.type = enemy_dict["T"]
 	new_enemy.state = enemy_dict["S"] 
 	new_enemy.name = str(enemy_id)

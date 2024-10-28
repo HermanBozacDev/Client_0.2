@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctngebko77wns"
-path="res://.godot/imported/Dwarf.png-62ae8201369379b68e3c736a9b902bd5.ctex"
+uid="uid://dvoxqc53t0hoh"
+path="res://.godot/imported/DarkElf.png-77c8b1bf30fd95711c4eaf4bf0c33302.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Players/Players/Dwarf/Dwarf.png"
-dest_files=["res://.godot/imported/Dwarf.png-62ae8201369379b68e3c736a9b902bd5.ctex"]
+source_file="res://Resources/Players/DarkElf/DarkElf.png"
+dest_files=["res://.godot/imported/DarkElf.png-77c8b1bf30fd95711c4eaf4bf0c33302.ctex"]
 
 [params]
 

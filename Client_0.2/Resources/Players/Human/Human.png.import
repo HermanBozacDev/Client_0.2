@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvoxqc53t0hoh"
-path="res://.godot/imported/DarkElf.png-234f8805ff1cae28164d018a826fa597.ctex"
+uid="uid://3kof8w3dqi3a"
+path="res://.godot/imported/Human.png-14be2d8ff706f6f754826260f9a490bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Players/Players/DarkElf/DarkElf.png"
-dest_files=["res://.godot/imported/DarkElf.png-234f8805ff1cae28164d018a826fa597.ctex"]
+source_file="res://Resources/Players/Human/Human.png"
+dest_files=["res://.godot/imported/Human.png-14be2d8ff706f6f754826260f9a490bd.ctex"]
 
 [params]
 

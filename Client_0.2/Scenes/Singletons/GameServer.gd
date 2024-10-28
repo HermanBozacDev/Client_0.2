@@ -87,6 +87,8 @@ func DetermineLatency():
 		"PlayerPool":
 			get_node("/root/SceneHandler/LoginScreen").PlayerPool(value)
 		"PlayerDie":
+			#quiero replicar algo como en el lineage que si te moris aparece un cartel para ira la ciudad 
+			#asi me da mejor tiempo de limpiar variables y sincronizar y usar animacion de muerte del personaje
 			PlayerData.SpawnClientPlayer(key,value)
 		"SoundFx":
 				var attack_sound = load("res://Scenes/Sounds/FX/Attack1Sound.tscn")

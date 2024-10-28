@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/PlayerView.gd" id="1_cf1d2"]
 [ext_resource type="StyleBox" uid="uid://ekqi36dneroh" path="res://Scenes/UI/PatronStyle.tres" id="1_w5crk"]
-[ext_resource type="Texture2D" uid="uid://hba60fsmvsbs" path="res://Resources/Players/Players/DarkElf/ElfoCharacte32x32.png" id="2_khxa6"]
+[ext_resource type="Texture2D" uid="uid://hba60fsmvsbs" path="res://Resources/Players/DarkElf/ElfoCharacte32x32.png" id="3_byexo"]
 [ext_resource type="Texture2D" uid="uid://yd2siu0jrafs" path="res://Resources/GUI/BASEHPBar.png" id="3_o2dd2"]
 [ext_resource type="Texture2D" uid="uid://biufo2ea3clvg" path="res://Resources/GUI/HPBar.png" id="4_p3l2o"]
 
 [node name="PlayerView" type="Control" groups=["PlayerGUI"]]
+texture_filter = 1
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 3
 anchors_preset = 0
@@ -48,7 +49,7 @@ offset_right = 0.0119991
 offset_bottom = 0.0119991
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_khxa6")
+texture = ExtResource("3_byexo")
 stretch_mode = 2
 
 [node name="Level" type="Panel" parent="Panel"]

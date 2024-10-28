@@ -128,7 +128,7 @@ func _on_orc_pressed() -> void:
 	select_class.hide()
 	select_type.show()
 func _on_dwarf_pressed() -> void:
-	new_class = "dwarf"
+	new_class = "dwarven"
 	select_class.hide()
 	select_type.show()
 func _on_fighter_pressed() -> void:
@@ -154,8 +154,10 @@ func PlayerPool(new_player_pool):
 		for character in new_player_pool[acount]:
 			var load_slot = load("res://Scenes/UI/LoadSlot.tscn")
 			var new_load_instance = load_slot.instantiate()
+			print("new_player_pool[acount][character]",new_player_pool[acount][character])
 			new_load_instance.slot_name = character
-			new_load_instance.slot_level = new_player_pool[acount][character].level
+			
+			new_load_instance.slot_level = new_player_pool[acount][character]["Level"]
 			get_node("Backgroun/Panel/LoadPlayer/LoadPlayer").add_child(new_load_instance)
 	user_panel.hide()
 	load_player.show()

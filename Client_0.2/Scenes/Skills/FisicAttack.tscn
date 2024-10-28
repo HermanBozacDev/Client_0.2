@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5c5rnwovx70q"]
+
+[ext_resource type="Script" path="res://Scenes/Skills/FisicAttack.gd" id="1_bmake"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_10xnq"]
+a = Vector2(16, 0)
+b = Vector2(0, 0)
+
+[node name="FisicAttack" type="Area2D"]
+script = ExtResource("1_bmake")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_10xnq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,12 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://db7w341g3buvi"]
+[gd_scene load_steps=29 format=3 uid="uid://db7w341g3buvi"]
 
-[ext_resource type="Texture2D" uid="uid://dvoxqc53t0hoh" path="res://Resources/Players/Players/DarkElf/DarkElf.png" id="1_0qlmt"]
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_v427t"]
-[ext_resource type="Texture2D" uid="uid://cudm6ojfe0q55" path="res://Resources/Items/Bone_BootsInGame.png" id="3_3w7ul"]
-[ext_resource type="Texture2D" uid="uid://6bidg0j0xfbx" path="res://Resources/Items/Bone_ArmorInGame.png" id="4_olq3l"]
-[ext_resource type="Texture2D" uid="uid://c1u45mjsp0esy" path="res://Resources/Items/Bone_GlovesInGame.png" id="5_qu6a1"]
-[ext_resource type="Texture2D" uid="uid://cskghsgceyhtj" path="res://Resources/Items/Bone_HatInGame.png" id="6_dim0j"]
-[ext_resource type="Texture2D" uid="uid://dpbd4bkr4wpwq" path="res://Resources/Items/Dark_WingsInGame.png" id="7_kqyo8"]
+[ext_resource type="Texture2D" uid="uid://dvoxqc53t0hoh" path="res://Resources/Players/DarkElf/DarkElf.png" id="2_wg3so"]
+[ext_resource type="PackedScene" uid="uid://bkinc388lt5ck" path="res://Scenes/Skills/CastBar.tscn" id="3_py522"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aujjn"]
 radius = 6.0
@@ -535,38 +531,33 @@ script = ExtResource("1_v427t")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_0qlmt")
+texture = ExtResource("2_wg3so")
 hframes = 10
 vframes = 4
-frame = 3
+frame = 1
 
 [node name="Boots" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("3_3w7ul")
 hframes = 10
 vframes = 4
 
 [node name="Armor" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("4_olq3l")
 hframes = 10
 vframes = 4
 
 [node name="Gloves" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("5_qu6a1")
 hframes = 10
 vframes = 4
 
 [node name="Hat" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("6_dim0j")
 hframes = 10
 vframes = 4
 
 [node name="Wings" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("7_kqyo8")
 hframes = 10
 vframes = 4
 frame = 31
@@ -595,3 +586,10 @@ parameters/Walk/blend_position = Vector2(-0.34346, 0.580099)
 
 [node name="Position2D" type="Marker2D" parent="TurnAxis"]
 position = Vector2(16, 0)
+
+[node name="CastBar" parent="." instance=ExtResource("3_py522")]
+visible = false
+offset_left = -8.0
+offset_top = -14.0
+offset_right = 8.0
+offset_bottom = -12.0

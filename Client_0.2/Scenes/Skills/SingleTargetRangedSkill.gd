@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-
+ 
 var projectile_speed 
 var life_time = 3
 var skill_name
@@ -17,7 +17,7 @@ func SelfDestruct():
 	queue_free()
 
 
-func _on_skill_hitbox_body_entered(body: Node2D) -> void:
+func _on_skill_hitbox_body_entered(_body: Node2D) -> void:
 	if processing_body == false:
 		processing_body = true
 		print("colision ahora si con body")

@@ -1,5 +1,4 @@
 extends CharacterBody2D
-var map
 var speed = 40.0
 var animation_vector = Vector2()
 var player_state
@@ -8,15 +7,46 @@ var destination = Vector2()
 var angle_to_mouse_position
 var direction
 var windows  = false
+
+var attacking = false
+
 var inventory = preload("res://Scenes/UI/MultiPanel.tscn")
+var darkelf_texture = load("res://Resources/Players/DarkElf/DarkElf.png")
+var elf_texture = load("res://Resources/Players/Elf/Elf.png")
+var human_texture = load("res://Resources/Players/Human/Human.png")
+var orc_texture = load("res://Resources/Players/Orc/Orc.png")
+var dwarven_texture = load("res://Resources/Players/Dwarf/Dwarf.png")
 
 @onready var animation_tree = get_node("AnimationTree")
 @onready var animation_mode = animation_tree.get("parameters/playback")
 
 @onready var canvas_node =  get_node("/root/SceneHandler/CanvasLayer")
 
+@onready var sprite = $Sprite
+
+
+
+
+
+
+
+
+
 func _ready() -> void:
-	pass
+	match PlayerData.player_class:
+		"darkelf":
+			
+			sprite.set_texture(darkelf_texture)
+		"elf":
+			sprite.set_texture(elf_texture)
+		"human":
+			sprite.set_texture(human_texture)
+		"orc":
+			sprite.set_texture(orc_texture)
+		"dwarven":
+			sprite.set_texture(dwarven_texture)
+
+
 
 func DefinePlayerState():
 	var my_position = get_global_position()
@@ -53,25 +83,54 @@ func _physics_process(_delta: float) -> void:
 		else:
 			windows = false
 
-	if Input.is_action_pressed("SpaceBar"):
+	if Input.is_action_pressed("s"):
 		moving = false
+	if Input.is_action_pressed("SpaceBar"):
+		if attacking == false:
+			moving = false
+			attacking = true
+			var skill = preload("res://Scenes/Skills/FisicAttack.tscn")
+			var skill_instance = skill.instantiate()
+			set_variables()
+			destination = position
+			
+			var a_rotation = angle_to_mouse_position
+			get_node("TurnAxis").rotation = a_rotation
+			skill_instance.rotation = a_rotation
+			
+			var a_position =  (get_node("TurnAxis/Position2D").get_global_position()-get_global_position())
+			skill_instance.position = a_position
+			
+			add_child(skill_instance)
+			animation_vector = position.direction_to(get_global_mouse_position()).normalized()   
+			var value = ["FisicAttack","BasicAttack",a_rotation,a_position, animation_vector, GameServer.client_clock,PlayerData.player_map,get_node("TurnAxis/Position2D").get_global_position()]
+			var key = "PlayerAttack"
+			GameServer.ClientSendDataToServer(key, value)
+			await (get_tree().create_timer(1).timeout)
+			attacking = false
+		else:
+			return 
+
+		#Attack(angle_to_mouse_position,get_node("TurnAxis/Position2D").get_global_position(),"FisicAttack",skill_instance,"Melee")
+
 	if Input.is_action_pressed("Move"):
 		moving = true
 		destination = get_global_mouse_position()
-	if moving == false:
-		speed = 0
-	else:
+		
+	if moving:
 		Move()
+	#	speed = 0
+	#else:
+		#
 	DefinePlayerState()
 
+
 func Move():
-	
-	#NUEVA IMP
 	var movement = position.direction_to(destination) * speed
 	if position.distance_to(destination) > 4:
-		speed = 400
+		speed = 200
 		velocity = movement
-		move_and_slide() 
+		move_and_slide()
 		animation_vector = movement.normalized()
 		animation_tree.set("parameters/Walk/blend_position", animation_vector)
 		animation_tree.set("parameters/Idle/blend_position", animation_vector)
@@ -80,15 +139,7 @@ func Move():
 		moving = false
 		animation_mode.travel("Idle")
 
-func Attack(a_rotation,a_position,attack_name,skill_instance,attack_type):
-	
-	moving = false
-	var a_direction = direction
-	animation_vector = position.direction_to(get_global_mouse_position()).normalized()   
-	var value = [position, animation_vector, GameServer.client_clock, a_rotation, a_position, a_direction ,PlayerData.player_map,attack_name,attack_type]
-	var key = "PlayerAttack"
-	GameServer.ClientSendDataToServer(key, value)
-	get_parent().add_child(skill_instance)
+
 
 
 

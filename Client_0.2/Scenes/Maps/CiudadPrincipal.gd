@@ -80,10 +80,10 @@ func WithFutureState():
 			var animation_vector = world_state_buffer[1]["CiudadPrincipal"][enemy]["A"]
 			get_node("MapElements/Enemies/" + str(enemy)).state = world_state_buffer[1]["CiudadPrincipal"][enemy]["S"]
 			get_node("MapElements/Enemies/" + str(enemy)).MoveEnemy(new_position)
-			get_node("MapElements/Enemies/" + str(enemy)).Health(world_state_buffer[1]["CiudadPrincipal"][enemy]["H"]) 
+			get_node("MapElements/Enemies/" + str(enemy)).Health(world_state_buffer[1]["CiudadPrincipal"][enemy]["Health"]) 
 			get_node("MapElements/Enemies/" + str(enemy)).AnimationMode(animation_vector)
 		else:
-			if world_state_buffer[2]["CiudadPrincipal"][enemy]["H"] <= 0:
+			if world_state_buffer[2]["CiudadPrincipal"][enemy]["Health"] <= 0:
 				pass
 			else:
 				SpawnNewEnemy(enemy, world_state_buffer[2]["CiudadPrincipal"][enemy])
@@ -121,8 +121,8 @@ func SpawnNewEnemy(enemy_id, enemy_dict):
 func SpawnSkullMan(enemy_id, enemy_dict):
 	var new_enemy = skullman.instantiate()
 	new_enemy.position = enemy_dict["P"]
-	new_enemy.max_hp = enemy_dict["mH"]
-	new_enemy.current_hp = enemy_dict["H"]
+	new_enemy.max_hp = enemy_dict["MHealth"]
+	new_enemy.current_hp = enemy_dict["Health"]
 	new_enemy.type = enemy_dict["T"]
 	new_enemy.state = enemy_dict["S"] 
 	new_enemy.name = str(enemy_id)
