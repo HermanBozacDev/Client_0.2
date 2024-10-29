@@ -5,30 +5,31 @@
 [ext_resource type="Texture2D" uid="uid://b2mg5jll3m07p" path="res://Resources/GUI/Button_pressed.png" id="3_ug52j"]
 
 [node name="Menu" type="Control" groups=["Menu"]]
-custom_minimum_size = Vector2(32, 128)
+custom_minimum_size = Vector2(128, 16)
 layout_mode = 3
-anchor_left = 0.033
-anchor_top = -0.05
-anchor_right = 0.1
-anchor_bottom = 0.35
-offset_left = 0.16
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 88.0
+offset_right = 16.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hsgkd")
 
-[node name="Inventory" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(32, 128)
+[node name="Inventory" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_right = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="I" type="VBoxContainer" parent="Inventory"]
+[node name="I" type="HBoxContainer" parent="Inventory"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
@@ -41,6 +42,7 @@ size_flags_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Use" type="TextureButton" parent="Inventory/I/Use"]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -66,7 +68,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Equip" type="Control" parent="Inventory/I"]
-visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -98,7 +99,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Move" type="Control" parent="Inventory/I"]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(64, 16)
 layout_mode = 2
 size_flags_horizontal = 0
 metadata/_edit_use_anchors_ = true
@@ -123,7 +124,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 5
 text = "MOVE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -160,7 +161,7 @@ text = "DROP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EquipedItems" type="VBoxContainer" parent="."]
+[node name="EquipedItems" type="HBoxContainer" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -219,7 +220,7 @@ text = "LEAVE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EquipedExtraItems" type="VBoxContainer" parent="."]
+[node name="EquipedExtraItems" type="HBoxContainer" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -238,6 +239,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_nw3p8")
@@ -250,14 +252,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -33.0
-offset_right = -16.0
-offset_bottom = -33.0
+offset_left = -16.5
+offset_top = -38.5
+offset_right = -15.5
+offset_bottom = -27.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 7
-text = "INFO"
 horizontal_alignment = 1
 vertical_alignment = 1
 

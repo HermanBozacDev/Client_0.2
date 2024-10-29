@@ -21,6 +21,7 @@ var learn_skill_dic = {}
 var raiz_inventario_hotbar
 var id_boton_apretado
 var skill_instance
+
 """VARIABLES PARA USO DE LA INTERFAZ DE USUARIO"""
 var key_correlative
 var key_id
@@ -81,7 +82,8 @@ func KeyHotBarStateMachine():
 		Match_Skill()
 	else:
 		"""ES UN ITEM"""
-		match PlayerData.item_dic[id_boton_apretado].ItemType:
+		print("YA LLEGO HASTA ACA CUANDO TODO LOS BOTONES DEL HOTBAR DE ITEMS")
+		match PlayerData.hot_bar_dic[PlayerData.numero_boton_apretado][1]:
 			"Weapon":
 				print("Weapon")
 			"Armor":

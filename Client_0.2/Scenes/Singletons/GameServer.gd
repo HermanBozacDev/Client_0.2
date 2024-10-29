@@ -95,7 +95,7 @@ func DetermineLatency():
 				var attack_sound_instance = attack_sound.instantiate()
 				add_child(attack_sound_instance)
 		"UpdateInventory":
-			print("despues de matar un enemigo recivo un nuevo inventario")
+			print("despues de matar un enemigo recivo un nuevo inventario",value)
 			PlayerData.inventory_dic = value
 		"UpdateSkills":
 			PlayerData.learn_skill_dic = value
