@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hr4jlnd3vk85"
-path="res://.godot/imported/Ice Spear_icon.png-e5eb9b921307935e38cd6d799d2a338e.ctex"
+uid="uid://b4umohwulhj6s"
+path="res://.godot/imported/InventoryIcon.png-a50ade562439e8fb71e214f9e4235056.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Skills/Icons/Ice Spear_icon.png"
-dest_files=["res://.godot/imported/Ice Spear_icon.png-e5eb9b921307935e38cd6d799d2a338e.ctex"]
+source_file="res://Resources/GUI/InventoryIcon.png"
+dest_files=["res://.godot/imported/InventoryIcon.png-a50ade562439e8fb71e214f9e4235056.ctex"]
 
 [params]
 

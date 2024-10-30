@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvaard06nb5lg"]
+
+[ext_resource type="Script" path="res://Scenes/UI/MultiSlot.gd" id="1_1khlv"]
+[ext_resource type="Texture2D" uid="uid://di1217ii04g4e" path="res://Resources/GUI/MultiSlot.png" id="2_8pdqh"]
+[ext_resource type="Texture2D" uid="uid://yh6oj3aclba3" path="res://Resources/GUI/MultiSlotPressed.png" id="3_dsy07"]
+
+[node name="MultiSlot" type="Control" groups=["MultiSlot"]]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 3
+anchor_right = 0.05
+anchor_bottom = 0.075
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1khlv")
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8pdqh")
+
+[node name="SelectBackground" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dsy07")
+
+[node name="texture" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.042
+anchor_right = 0.958
+anchor_bottom = 0.958
+offset_left = -0.00800014
+offset_top = -0.00800014
+offset_right = 0.00799942
+offset_bottom = 0.00799942
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="pressed" from="texture" to="." method="_on_texture_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_ready"]

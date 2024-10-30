@@ -1,0 +1,165 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6ada3p7obuyq"]
+
+[ext_resource type="Texture2D" uid="uid://bnrai4i5kisvc" path="res://Resources/GUI/InventoryBackground.png" id="1_e14wt"]
+[ext_resource type="Script" path="res://Scenes/UI/MenuPanel.gd" id="1_oouah"]
+[ext_resource type="Texture2D" uid="uid://bdjyxmpijarxb" path="res://Resources/GUI/Button2.png" id="2_0n2et"]
+[ext_resource type="Texture2D" uid="uid://cna2b1sy6ne6s" path="res://Resources/GUI/Button2Pressed.png" id="3_5whta"]
+
+[node name="MenuPanel" type="Control" groups=["Panel"]]
+texture_filter = 1
+custom_minimum_size = Vector2(126, 203)
+layout_mode = 3
+anchor_left = 0.677
+anchor_top = 0.187
+anchor_right = 0.94
+anchor_bottom = 0.834
+offset_left = 0.039978
+offset_top = 0.159996
+offset_right = -0.200012
+offset_bottom = -3.88
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oouah")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e14wt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Unequip" type="TextureButton" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 2
+texture_normal = ExtResource("2_0n2et")
+texture_pressed = ExtResource("3_5whta")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Background/VBoxContainer/Unequip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info" type="TextureButton" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 2
+texture_normal = ExtResource("2_0n2et")
+texture_pressed = ExtResource("3_5whta")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Use" type="Label" parent="Background/VBoxContainer/Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info2" type="TextureButton" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 2
+texture_normal = ExtResource("2_0n2et")
+texture_pressed = ExtResource("3_5whta")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Use" type="Label" parent="Background/VBoxContainer/Info2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info3" type="TextureButton" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 2
+texture_normal = ExtResource("2_0n2et")
+texture_pressed = ExtResource("3_5whta")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Use" type="Label" parent="Background/VBoxContainer/Info3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info4" type="TextureButton" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 2
+texture_normal = ExtResource("2_0n2et")
+texture_pressed = ExtResource("3_5whta")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Use" type="Label" parent="Background/VBoxContainer/Info4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info5" type="TextureButton" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 2
+texture_normal = ExtResource("2_0n2et")
+texture_pressed = ExtResource("3_5whta")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Use" type="Label" parent="Background/VBoxContainer/Info5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1

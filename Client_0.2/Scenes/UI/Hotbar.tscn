@@ -1,37 +1,82 @@
-[gd_scene load_steps=3 format=3 uid="uid://0c5iehqan1r8"]
+[gd_scene load_steps=6 format=3 uid="uid://0c5iehqan1r8"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Hotbar.gd" id="1_4ocyo"]
-[ext_resource type="StyleBox" uid="uid://ekqi36dneroh" path="res://Scenes/UI/PatronStyle.tres" id="1_g2q8l"]
+[ext_resource type="Texture2D" uid="uid://fp57defg1mjy" path="res://Resources/GUI/HotbarBackground.png" id="2_jwrjq"]
+[ext_resource type="Texture2D" uid="uid://bhfbeckdthkqu" path="res://Resources/GUI/Button1.png" id="3_2vx82"]
+[ext_resource type="Texture2D" uid="uid://bhjxiewd4nyha" path="res://Resources/GUI/Button1Pressed.png" id="4_8du3i"]
+[ext_resource type="Texture2D" uid="uid://brnharyhflq8y" path="res://Resources/GUI/Clear.png" id="5_8xcfm"]
 
-[node name="Hotbar" type="Control" groups=["PlayerGUI"]]
+[node name="Hotbar" type="Control" groups=["Hotbar", "PlayerGUI"]]
 texture_filter = 1
-custom_minimum_size = Vector2(256, 32)
+custom_minimum_size = Vector2(228, 28)
 layout_mode = 3
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -32.0
-offset_right = 128.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = 132.0
+offset_right = 114.0
+offset_bottom = 160.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 script = ExtResource("1_4ocyo")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("1_g2q8l")
+texture = ExtResource("2_jwrjq")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
-custom_minimum_size = Vector2(248, 16)
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 252.0
-offset_bottom = 20.0
+custom_minimum_size = Vector2(222, 24)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009
+anchor_top = 0.071
+anchor_right = 0.991
+anchor_bottom = 0.929
+offset_left = -0.0339971
+offset_top = 0.012
+offset_right = 0.0339813
+offset_bottom = -0.012001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="DeleteHotbarSlot" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.039
+anchor_top = 0.5
+anchor_right = 1.039
+anchor_bottom = 0.5
+offset_left = -8.89201
+offset_top = -9.0
+offset_right = 9.10799
+offset_bottom = 9.0
+toggle_mode = true
+texture_normal = ExtResource("3_2vx82")
+texture_pressed = ExtResource("4_8du3i")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/DeleteHotbarSlot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_8xcfm")
+
+[connection signal="pressed" from="Panel/DeleteHotbarSlot" to="." method="_on_delete_hotbar_slot_pressed"]

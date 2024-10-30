@@ -1,34 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcod3iximn5f3"]
+[gd_scene load_steps=4 format=3 uid="uid://bcod3iximn5f3"]
 
 [ext_resource type="Script" path="res://Scenes/Main/SceneHandler.gd" id="1_0dr7c"]
 [ext_resource type="PackedScene" uid="uid://cf3wjbcv8u4n3" path="res://Scenes/UI/LoginScreen.tscn" id="1_3lml0"]
+[ext_resource type="PackedScene" uid="uid://by1evkihokebk" path="res://Scenes/UI/PanelOptions.tscn" id="2_lwx8p"]
 
 [node name="SceneHandler" type="Node"]
 script = ExtResource("1_0dr7c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -106.0
-offset_bottom = 44.0
-grow_horizontal = 0
-
-[node name="Label" type="Label" parent="CanvasLayer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 4
-text = "       	   AVISOS
-*boton 1 del hotbar y del inventario estan bugeados
-*solo andan los 3 ataques activos
-****SOLO UUSAR ELF  FIGHTER POR AHORA****"
-autowrap_mode = 2
+[node name="PanelOptions" parent="CanvasLayer" instance=ExtResource("2_lwx8p")]
 
 [node name="LoginScreen" parent="." instance=ExtResource("1_3lml0")]
 

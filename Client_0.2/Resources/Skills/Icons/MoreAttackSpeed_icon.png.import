@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bup0yvhn8kd0q"
-path="res://.godot/imported/Mana_Regen_icon.png-5aa70ec5a7fa8a124187b6569a99ec0a.ctex"
+uid="uid://dv7ulpvoarmgw"
+path="res://.godot/imported/MoreAttackSpeed_icon.png-1d23a65768e18493a9e64a435f2f0448.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Skills/Icons/Mana_Regen_icon.png"
-dest_files=["res://.godot/imported/Mana_Regen_icon.png-5aa70ec5a7fa8a124187b6569a99ec0a.ctex"]
+source_file="res://Resources/Skills/Icons/MoreAttackSpeed_icon.png"
+dest_files=["res://.godot/imported/MoreAttackSpeed_icon.png-1d23a65768e18493a9e64a435f2f0448.ctex"]
 
 [params]
 

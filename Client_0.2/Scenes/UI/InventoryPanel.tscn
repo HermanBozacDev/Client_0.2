@@ -1,0 +1,182 @@
+[gd_scene load_steps=5 format=3 uid="uid://u6upjnoibu6p"]
+
+[ext_resource type="Script" path="res://Scenes/UI/InventoryPanel.gd" id="1_bio8a"]
+[ext_resource type="Texture2D" uid="uid://bnrai4i5kisvc" path="res://Resources/GUI/InventoryBackground.png" id="1_xu1e8"]
+[ext_resource type="Texture2D" uid="uid://bdjyxmpijarxb" path="res://Resources/GUI/Button2.png" id="2_nnri0"]
+[ext_resource type="Texture2D" uid="uid://cna2b1sy6ne6s" path="res://Resources/GUI/Button2Pressed.png" id="3_fjecy"]
+
+[node name="Inventory" type="Control" groups=["Panel"]]
+texture_filter = 1
+custom_minimum_size = Vector2(126, 203)
+layout_mode = 3
+anchor_left = 0.677
+anchor_top = 0.187
+anchor_right = 0.94
+anchor_bottom = 0.834
+offset_left = 0.039978
+offset_top = 0.159996
+offset_right = -0.200012
+offset_bottom = -3.88
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bio8a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xu1e8")
+
+[node name="Inventory" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 126.0
+offset_bottom = 172.0
+
+[node name="Grid" type="GridContainer" parent="TextureRect/Inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -84.0
+offset_right = 60.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+
+[node name="Buttons" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_top = 171.0
+offset_right = 126.0
+offset_bottom = 202.0
+
+[node name="Move" type="TextureButton" parent="TextureRect/Buttons"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 63.0
+offset_bottom = 10.0
+texture_normal = ExtResource("2_nnri0")
+texture_pressed = ExtResource("3_fjecy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/Buttons/Move"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Use" type="TextureButton" parent="TextureRect/Buttons"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 0
+offset_left = 63.0
+offset_top = 2.0
+offset_right = 124.0
+offset_bottom = 10.0
+texture_normal = ExtResource("2_nnri0")
+texture_pressed = ExtResource("3_fjecy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Use" type="Label" parent="TextureRect/Buttons/Use"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "USE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Equip" type="TextureButton" parent="TextureRect/Buttons"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 63.0
+offset_bottom = 19.0
+texture_normal = ExtResource("2_nnri0")
+texture_pressed = ExtResource("3_fjecy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/Buttons/Equip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "EQUIP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info" type="TextureButton" parent="TextureRect/Buttons"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 0
+offset_left = 63.0
+offset_top = 11.0
+offset_right = 124.0
+offset_bottom = 19.0
+texture_normal = ExtResource("2_nnri0")
+texture_pressed = ExtResource("3_fjecy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Use" type="Label" parent="TextureRect/Buttons/Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Delete" type="TextureButton" parent="TextureRect/Buttons"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 20.0
+offset_right = 63.0
+offset_bottom = 28.0
+texture_normal = ExtResource("2_nnri0")
+texture_pressed = ExtResource("3_fjecy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/Buttons/Delete"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "DELETE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureRect/Buttons/Move" to="." method="_on_move_pressed"]

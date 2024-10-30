@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x58ya1indh24"
-path="res://.godot/imported/Smoke_Bomb_icon.png-a09203a462ac1cdad519df421f52bb5c.ctex"
+uid="uid://cx2bu15od2qd6"
+path="res://.godot/imported/HitFx1.png-fbc704b065c59c4db1112003a5bc796d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Skills/Icons/Smoke_Bomb_icon.png"
-dest_files=["res://.godot/imported/Smoke_Bomb_icon.png-a09203a462ac1cdad519df421f52bb5c.ctex"]
+source_file="res://Resources/Skills/HitFx/HitFx1.png"
+dest_files=["res://.godot/imported/HitFx1.png-fbc704b065c59c4db1112003a5bc796d.ctex"]
 
 [params]
 

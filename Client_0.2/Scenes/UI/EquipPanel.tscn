@@ -1,0 +1,274 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3k31toijrllv"]
+
+[ext_resource type="Texture2D" uid="uid://bnrai4i5kisvc" path="res://Resources/GUI/InventoryBackground.png" id="2_07ph8"]
+[ext_resource type="PackedScene" uid="uid://cvaard06nb5lg" path="res://Scenes/UI/MultiSlot.tscn" id="3_303uy"]
+[ext_resource type="Texture2D" uid="uid://bdjyxmpijarxb" path="res://Resources/GUI/Button2.png" id="4_kv8c4"]
+[ext_resource type="Texture2D" uid="uid://cna2b1sy6ne6s" path="res://Resources/GUI/Button2Pressed.png" id="5_wo453"]
+
+[node name="Equip" type="Control" groups=["Panel"]]
+texture_filter = 1
+custom_minimum_size = Vector2(126, 203)
+layout_mode = 3
+anchor_left = 0.677
+anchor_top = 0.187
+anchor_right = 0.94
+anchor_bottom = 0.834
+offset_left = 0.039978
+offset_top = 0.159996
+offset_right = -0.200012
+offset_bottom = -3.88
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_07ph8")
+
+[node name="Equip1" type="Control" parent="Background"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.207
+anchor_right = 0.5
+anchor_bottom = 0.207
+offset_left = -63.0
+offset_top = -36.021
+offset_right = 63.0
+offset_bottom = 18.979
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid" type="GridContainer" parent="Background/Equip1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -24.0
+offset_right = 60.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+
+[node name="MultiSlot" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot2" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot3" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot4" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot5" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot6" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot7" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot8" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot9" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot10" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="Equip2" type="Control" parent="Background"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.207
+anchor_right = 0.5
+anchor_bottom = 0.207
+offset_left = -63.0
+offset_top = 23.979
+offset_right = 63.0
+offset_bottom = 78.979
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid" type="GridContainer" parent="Background/Equip2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -24.0
+offset_right = 60.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+
+[node name="MultiSlot" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot2" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot3" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot4" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot5" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot6" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot7" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot8" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot9" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot10" parent="Background/Equip2/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="Equip3" type="Control" parent="Background"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.207
+anchor_right = 0.5
+anchor_bottom = 0.207
+offset_left = -63.0
+offset_top = 82.979
+offset_right = 63.0
+offset_bottom = 137.979
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid" type="GridContainer" parent="Background/Equip3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -24.0
+offset_right = 60.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+
+[node name="MultiSlot" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot2" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot3" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot4" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot5" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot6" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot7" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot8" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot9" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="MultiSlot10" parent="Background/Equip3/Grid" instance=ExtResource("3_303uy")]
+layout_mode = 2
+
+[node name="Buttons" type="Control" parent="Background"]
+anchors_preset = 0
+offset_top = 171.0
+offset_right = 126.0
+offset_bottom = 202.0
+
+[node name="Unequip" type="TextureButton" parent="Background/Buttons"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.258
+anchor_top = 0.71
+anchor_right = 0.258
+anchor_bottom = 0.71
+offset_left = -30.508
+offset_top = -4.01
+offset_right = 30.492
+offset_bottom = 3.99
+texture_normal = ExtResource("4_kv8c4")
+texture_pressed = ExtResource("5_wo453")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Background/Buttons/Unequip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info" type="TextureButton" parent="Background/Buttons"]
+custom_minimum_size = Vector2(61, 8)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.742
+anchor_top = 0.71
+anchor_right = 0.742
+anchor_bottom = 0.71
+offset_left = -30.492
+offset_top = -4.01
+offset_right = 30.508
+offset_bottom = 3.99
+texture_normal = ExtResource("4_kv8c4")
+texture_pressed = ExtResource("5_wo453")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Use" type="Label" parent="Background/Buttons/Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1

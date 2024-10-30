@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd1iwkhd3wdud"]
+[gd_scene load_steps=6 format=3 uid="uid://bd1iwkhd3wdud"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Menu.gd" id="1_hsgkd"]
+[ext_resource type="Texture2D" uid="uid://bhfbeckdthkqu" path="res://Resources/GUI/Button1.png" id="2_1pbuu"]
 [ext_resource type="Texture2D" uid="uid://bs3i47a078ar0" path="res://Resources/GUI/Button_normal.png" id="2_nw3p8"]
+[ext_resource type="Texture2D" uid="uid://bhjxiewd4nyha" path="res://Resources/GUI/Button1Pressed.png" id="3_25443"]
 [ext_resource type="Texture2D" uid="uid://b2mg5jll3m07p" path="res://Resources/GUI/Button_pressed.png" id="3_ug52j"]
 
 [node name="Menu" type="Control" groups=["Menu"]]
-custom_minimum_size = Vector2(128, 16)
+visible = false
+custom_minimum_size = Vector2(120, 16)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -14,7 +17,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -112.0
 offset_top = 88.0
-offset_right = 16.0
+offset_right = 8.0
 offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -34,41 +37,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="Use" type="Control" parent="Inventory/I"]
-visible = false
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="Use" type="TextureButton" parent="Inventory/I/Use"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("2_nw3p8")
-texture_pressed = ExtResource("3_ug52j")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Text" type="Label" parent="Inventory/I/Use/Use"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "USE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Equip" type="Control" parent="Inventory/I"]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(24, 8)
 layout_mode = 2
 size_flags_horizontal = 0
 metadata/_edit_use_anchors_ = true
@@ -81,8 +51,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_nw3p8")
-texture_pressed = ExtResource("3_ug52j")
+texture_normal = ExtResource("2_1pbuu")
+texture_pressed = ExtResource("3_25443")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -93,13 +63,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 5
 text = "EQUIP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Move" type="Control" parent="Inventory/I"]
-custom_minimum_size = Vector2(64, 16)
+custom_minimum_size = Vector2(24, 16)
 layout_mode = 2
 size_flags_horizontal = 0
 metadata/_edit_use_anchors_ = true
@@ -112,8 +82,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_nw3p8")
-texture_pressed = ExtResource("3_ug52j")
+texture_normal = ExtResource("2_1pbuu")
+texture_pressed = ExtResource("3_25443")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -129,14 +99,13 @@ text = "MOVE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Drop" type="Control" parent="Inventory/I"]
-visible = false
-custom_minimum_size = Vector2(32, 32)
+[node name="Move2" type="Control" parent="Inventory/I"]
+custom_minimum_size = Vector2(24, 16)
 layout_mode = 2
 size_flags_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Drop" type="TextureButton" parent="Inventory/I/Drop"]
+[node name="Move" type="TextureButton" parent="Inventory/I/Move2"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -144,20 +113,82 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_nw3p8")
-texture_pressed = ExtResource("3_ug52j")
+texture_normal = ExtResource("2_1pbuu")
+texture_pressed = ExtResource("3_25443")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Text" type="Label" parent="Inventory/I/Drop/Drop"]
+[node name="Text" type="Label" parent="Inventory/I/Move2/Move"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "DROP"
+theme_override_font_sizes/font_size = 5
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Move3" type="Control" parent="Inventory/I"]
+custom_minimum_size = Vector2(24, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Move" type="TextureButton" parent="Inventory/I/Move3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_1pbuu")
+texture_pressed = ExtResource("3_25443")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="Inventory/I/Move3/Move"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 5
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Move4" type="Control" parent="Inventory/I"]
+custom_minimum_size = Vector2(24, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Move" type="TextureButton" parent="Inventory/I/Move4"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_1pbuu")
+texture_pressed = ExtResource("3_25443")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text" type="Label" parent="Inventory/I/Move4/Move"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 5
+text = "MOVE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -294,7 +325,8 @@ text = "LEAVE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Inventory/I/Use/Use" to="." method="_on_use_pressed"]
 [connection signal="pressed" from="Inventory/I/Equip/Equip" to="." method="_on_equip_pressed"]
 [connection signal="pressed" from="Inventory/I/Move/Move" to="." method="_on_move_pressed"]
-[connection signal="pressed" from="Inventory/I/Drop/Drop" to="." method="_on_drop_pressed"]
+[connection signal="pressed" from="Inventory/I/Move2/Move" to="." method="_on_move_pressed"]
+[connection signal="pressed" from="Inventory/I/Move3/Move" to="." method="_on_move_pressed"]
+[connection signal="pressed" from="Inventory/I/Move4/Move" to="." method="_on_move_pressed"]

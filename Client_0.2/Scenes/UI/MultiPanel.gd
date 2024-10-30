@@ -37,7 +37,7 @@ var diccionario_de_Grupos = {
 func _ready():
 	_on_inventory_pressed()#siempre comienza en el inventario
 	
-	for i in range(1,26):
+	for i in range(1,25):
 		var slot_new = load("res://Scenes/UI/MultiSlot.tscn").instantiate()
 		slot_new.set_name(str(i))
 		slot_new.type = "inventory"
@@ -75,9 +75,9 @@ func ClearVariables():
 	PlayerData.key_type = null
 	PlayerData.key_correlative = null
 	var actual_menu = get_tree().get_nodes_in_group("Menu")
-	for menu in actual_menu:
-		var node_name = menu.name
-		get_node("/root/SceneHandler/CanvasLayer/" + str(node_name)).queue_free()
+	#for menu in actual_menu:
+	#	var node_name = menu.name
+	#	get_node("/root/SceneHandler/CanvasLayer/" + str(node_name)).queue_free()
 
 func _on_active_skill_button_pressed() -> void:
 	for slot in active_skills.get_node("HBoxContainer/ActiveSkillsContainer").get_children():

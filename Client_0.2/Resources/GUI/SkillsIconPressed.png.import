@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmwfnlrchqvaf"
-path="res://.godot/imported/Hot_Spot_icon.png-fa11f9b5893592546fff67a326c3fd4e.ctex"
+uid="uid://ml22y5x5xpw6"
+path="res://.godot/imported/SkillsIconPressed.png-034b71eb5f054d91090072f293e36049.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Skills/Icons/Hot_Spot_icon.png"
-dest_files=["res://.godot/imported/Hot_Spot_icon.png-fa11f9b5893592546fff67a326c3fd4e.ctex"]
+source_file="res://Resources/GUI/SkillsIconPressed.png"
+dest_files=["res://.godot/imported/SkillsIconPressed.png-034b71eb5f054d91090072f293e36049.ctex"]
 
 [params]
 

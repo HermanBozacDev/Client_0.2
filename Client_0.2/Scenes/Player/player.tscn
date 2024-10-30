@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://db7w341g3buvi"]
+[gd_scene load_steps=26 format=3 uid="uid://db7w341g3buvi"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_v427t"]
 [ext_resource type="Texture2D" uid="uid://dvoxqc53t0hoh" path="res://Resources/Players/DarkElf/DarkElf.png" id="2_wg3so"]
@@ -501,19 +501,6 @@ min_space = Vector2(-1.1, -1.1)
 max_space = Vector2(1.1, 1.1)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pk77p"]
-reset = false
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k5veq"]
-reset = false
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dpa2k"]
-switch_mode = 1
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_24w52"]
 states/End/position = Vector2(421.333, 144)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_eitqe")
@@ -521,7 +508,6 @@ states/Idle/position = Vector2(433.333, 243.333)
 states/Start/position = Vector2(306.667, 242.716)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_0s7ip")
 states/Walk/position = Vector2(609.333, 236.667)
-transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_pk77p"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_k5veq"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_dpa2k")]
 graph_offset = Vector2(-15.8991, 62.6667)
 
 [node name="Player" type="CharacterBody2D" groups=["Jugador"]]
@@ -529,12 +515,14 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_v427t")
 
+[node name="Auras" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_wg3so")
 hframes = 10
 vframes = 4
-frame = 1
 
 [node name="Boots" type="Sprite2D" parent="."]
 texture_filter = 1

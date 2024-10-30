@@ -59,29 +59,16 @@ func DefinePlayerState():
 	var key = "PlayerState"
 	GameServer.ClientSendDataToServer(key,player_state)
 
-func ClearOldMenus():
-	for menu in get_tree().get_nodes_in_group("Menu"):
-		var node_name = menu.name
-		canvas_node.get_node(str(node_name)).queue_free()
-func ClearOldMultiPanel():
-	for multi_panel in get_tree().get_nodes_in_group("Windows"):
-		var node_name = multi_panel.name
-		canvas_node.get_node(str(node_name)).queue_free()
+
 
 func set_variables():
 	angle_to_mouse_position = get_angle_to(get_global_mouse_position())
 	direction = get_node("TurnAxis/Position2D").get_global_position().direction_to(get_global_mouse_position().normalized())
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("i"):
-		ClearOldMenus()
-		ClearOldMultiPanel()
-		if windows == false:
-			var inventory_instance = inventory.instantiate()
-			canvas_node.add_child(inventory_instance)
-			windows = true
-		else:
-			windows = false
+	if Input.is_action_just_pressed("Esc"):
+		for node in get_tree().get_nodes_in_group("Panel"):
+			node.queue_free()
 
 	if Input.is_action_pressed("s"):
 		moving = false

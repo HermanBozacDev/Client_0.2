@@ -53,10 +53,6 @@ func _on_equip_pressed() -> void:
 
 
 
-func _on_move_pressed() -> void:
-	print("APRETE MOVE VOY A INTENTAR MOVER")
-	PlayerData.move_item = true
-
 
 
 func _on_drop_pressed() -> void:

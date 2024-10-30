@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2j0j4c82neyn"
-path="res://.godot/imported/Fireball_icon.png-347934c3cef04056168641bdb1d5a522.ctex"
+uid="uid://br6bnaaj0rewq"
+path="res://.godot/imported/StatsIconPressed.png-d233839bbeeafc1626a81996abe01a05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Skills/Icons/Fireball_icon.png"
-dest_files=["res://.godot/imported/Fireball_icon.png-347934c3cef04056168641bdb1d5a522.ctex"]
+source_file="res://Resources/GUI/StatsIconPressed.png"
+dest_files=["res://.godot/imported/StatsIconPressed.png-d233839bbeeafc1626a81996abe01a05.ctex"]
 
 [params]
 

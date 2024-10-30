@@ -17,11 +17,21 @@ func SelfDestruct():
 	queue_free()
 
 
-func _on_skill_hitbox_body_entered(_body: Node2D) -> void:
+func _on_skill_hitbox_body_entered(body: Node2D) -> void:
 	if processing_body == false:
 		processing_body = true
 		print("colision ahora si con body")
 		get_node("CollisionShape2D").set_deferred("disabled", true)
 		self.hide()
+		var hit_effect = load("res://Scenes/Skills/HitEffect.tscn").instantiate()
+		var new_class = (body.get_class())
+		match new_class:
+			"TileMapLayer":
+				hit_effect.position = get_global_position()
+				body.add_child(hit_effect)
+			"CharacterBody2D":
+				body.add_child(hit_effect)
+		
+
 	else:
 		return

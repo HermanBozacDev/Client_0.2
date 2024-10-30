@@ -29,16 +29,20 @@ var key_type
 var key_group
 var key_to_move
 var last_multi_panel
-var move_item
 var numero_boton_apretado
+var move_item = false
+var move_skill = false
 var selected = false
 var procesando_boton = false
-var hotbar = preload("res://Scenes/UI/Hotbar.tscn")
+var DeleteHotbarSlot = false
+var hotbar = preload("res://Scenes/UI/Hotbar.tscn")#a esta mierda me confunde con el nombre despues lo cambio
 var player_view = preload("res://Scenes/UI/PlayerView.tscn")
 var client_player_scene = load("res://Scenes/Player/player.tscn")
 
 
-
+#funcion info donde envio info dinamica para buscar primero matcheo el diccionario y despues me fijo 
+#tipo "nombre del item/skill" "ejemplo. "SkillType","ItemDescrition"
+#llmar a client send info to servery generara en el servidor la estructura para el return con la data
 
 """PARA EL PLAYER VIEW"""
 func GetCurrentHp():
@@ -156,6 +160,8 @@ func MeleeSingleTargetSkill():
 func RangedSingleTargetSkill():
 	var skill = preload("res://Scenes/Skills/SingleTargetRangedSkill.tscn")
 	skill_instance = skill.instantiate()
+	var hit_effect = load("res://Scenes/Skills/CastFx.tscn").instantiate()
+	get_tree().get_nodes_in_group("Jugador")[0].get_node("Auras").add_child(hit_effect)
 	var player_node = get_tree().get_nodes_in_group("Jugador")[0]
 	player_node.set_variables()
 	player_node.get_node("TurnAxis").rotation = player_node.angle_to_mouse_position

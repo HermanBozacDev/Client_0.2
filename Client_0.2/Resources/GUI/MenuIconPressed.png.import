@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dadameuakollg"
-path="res://.godot/imported/Energy_Ball_icon.png-158fdd94e5938560c3ffedb2bd229ccc.ctex"
+uid="uid://dfj8d8d3kthv1"
+path="res://.godot/imported/MenuIconPressed.png-86f07f6e690e2ce789336ce7a8c0b0e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Skills/Icons/Energy_Ball_icon.png"
-dest_files=["res://.godot/imported/Energy_Ball_icon.png-158fdd94e5938560c3ffedb2bd229ccc.ctex"]
+source_file="res://Resources/GUI/MenuIconPressed.png"
+dest_files=["res://.godot/imported/MenuIconPressed.png-86f07f6e690e2ce789336ce7a8c0b0e5.ctex"]
 
 [params]
 
