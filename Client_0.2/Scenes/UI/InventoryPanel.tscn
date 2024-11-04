@@ -36,7 +36,7 @@ offset_top = 2.0
 offset_right = 126.0
 offset_bottom = 172.0
 
-[node name="Grid" type="GridContainer" parent="TextureRect/Inventory"]
+[node name="Grid" type="GridContainer" parent="TextureRect/Inventory" groups=["InventoryGrid"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -180,3 +180,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="TextureRect/Buttons/Move" to="." method="_on_move_pressed"]
+[connection signal="pressed" from="TextureRect/Buttons/Equip" to="." method="_on_equip_pressed"]

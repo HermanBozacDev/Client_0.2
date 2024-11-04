@@ -5,6 +5,7 @@ var skill = preload("res://Scenes/Skills/SingleTargetRangedSkill.tscn")
 var attack_dict = {}
 var player_stats
 
+"""ACA MUEVO A LOS OTROS JUGADORES"""
 func MovePlayer(new_position, animation_vector):
 	animation_tree.set("parameters/Walk/blend_position", animation_vector)
 	animation_tree.set("parameters/Idle/blend_position", animation_vector)
@@ -14,7 +15,7 @@ func MovePlayer(new_position, animation_vector):
 		set_position(new_position)
 		animation_mode.travel("Walk")
 
-
+"""ACA HAGO QUE ATAQUEN LOS OTROS JUGADORES"""
 func attack():
 	for attack_object in attack_dict.keys():
 		if attack_object <= GameServer.client_clock:
@@ -24,4 +25,3 @@ func attack():
 			attack_dict.erase(attack_object)
 			#await get_tree().create_timer(0.2).timeout
 			get_parent().add_child(skill_instance)
-			

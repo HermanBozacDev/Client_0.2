@@ -1,16 +1,17 @@
 extends CharacterBody2D
+
 var speed = 40.0
-var animation_vector = Vector2()
 var player_state
-var moving = false#variable para saber si la accion Move esta siendo ejecutada
-var destination = Vector2()
 var angle_to_mouse_position
 var direction
+
+var animation_vector = Vector2()
+var destination = Vector2()
+
 var windows  = false
-
 var attacking = false
+var moving = false
 
-var inventory = preload("res://Scenes/UI/MultiPanel.tscn")
 var darkelf_texture = load("res://Resources/Players/DarkElf/DarkElf.png")
 var elf_texture = load("res://Resources/Players/Elf/Elf.png")
 var human_texture = load("res://Resources/Players/Human/Human.png")
@@ -19,10 +20,7 @@ var dwarven_texture = load("res://Resources/Players/Dwarf/Dwarf.png")
 
 @onready var animation_tree = get_node("AnimationTree")
 @onready var animation_mode = animation_tree.get("parameters/playback")
-
-@onready var canvas_node =  get_node("/root/SceneHandler/CanvasLayer")
-
-@onready var sprite = $Sprite
+@onready var sprite = get_node("Sprite")
 
 
 
@@ -31,7 +29,7 @@ var dwarven_texture = load("res://Resources/Players/Dwarf/Dwarf.png")
 
 
 
-
+"""INIT"""
 func _ready() -> void:
 	match PlayerData.player_class:
 		"darkelf":
@@ -46,8 +44,8 @@ func _ready() -> void:
 		"dwarven":
 			sprite.set_texture(dwarven_texture)
 
-
-
+"""ACA DEFINO MI ESTADO PARA MANDAR AL SERVIDOR"""
+"""SOLAMENTE DEFINO ACA LA POSICION TIEMPO DEL CLIENTE Y EL VECTOR DE ANIMACION"""
 func DefinePlayerState():
 	var my_position = get_global_position()
 	player_state = {
@@ -59,17 +57,16 @@ func DefinePlayerState():
 	var key = "PlayerState"
 	GameServer.ClientSendDataToServer(key,player_state)
 
-
-
+"""SETEAR ANGLE TO MOUSE Y DIRECCION"""
 func set_variables():
 	angle_to_mouse_position = get_angle_to(get_global_mouse_position())
 	direction = get_node("TurnAxis/Position2D").get_global_position().direction_to(get_global_mouse_position().normalized())
 
+"""ACA PROCESO LAS ACCIONES Y BOTONES Y ENVIO EL ESTADO"""
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Esc"):
 		for node in get_tree().get_nodes_in_group("Panel"):
 			node.queue_free()
-
 	if Input.is_action_pressed("s"):
 		moving = false
 	if Input.is_action_pressed("SpaceBar"):
@@ -99,11 +96,9 @@ func _physics_process(_delta: float) -> void:
 			return 
 
 		#Attack(angle_to_mouse_position,get_node("TurnAxis/Position2D").get_global_position(),"FisicAttack",skill_instance,"Melee")
-
 	if Input.is_action_pressed("Move"):
 		moving = true
 		destination = get_global_mouse_position()
-		
 	if moving:
 		Move()
 	#	speed = 0
@@ -111,8 +106,9 @@ func _physics_process(_delta: float) -> void:
 		#
 	DefinePlayerState()
 
-
+"""FUNCION DE MOVE"""
 func Move():
+	print("mmoveee")
 	var movement = position.direction_to(destination) * speed
 	if position.distance_to(destination) > 4:
 		speed = 200
@@ -126,10 +122,7 @@ func Move():
 		moving = false
 		animation_mode.travel("Idle")
 
-
-
-
-
+"""FUNCION DE APLICAR BUFFDEBUFF EN UN PLAYER TODAVIA NO ESTA APLICADA. IGUAL ESO VA EN EL LADO DEL SERVIDOR"""
 func TargetBuff():
-	print("llego aca")
+	pass
 	

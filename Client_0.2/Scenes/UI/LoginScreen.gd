@@ -1,13 +1,13 @@
 extends Control
 #PANELES
-@onready var login_screen: VBoxContainer =   $Backgroun/Panel/LoginScreen
-@onready var create_account: VBoxContainer = $Backgroun/Panel/CreateAccount
-@onready var user_panel: VBoxContainer =     $Backgroun/Panel/UserPanel
-@onready var load_player: VBoxContainer =    $Backgroun/Panel/LoadPlayer
-@onready var select_name: VBoxContainer =    $Backgroun/Panel/SelectName
-@onready var select_type: VBoxContainer =    $Backgroun/Panel/SelectType
-@onready var select_class: VBoxContainer =   $Backgroun/Panel/SelectClass
-@onready var confirm_screen: VBoxContainer = $Backgroun/Panel/ConfirmScreen
+@onready var login_screen=   $Backgroun/Panel/LoginScreen
+@onready var create_account = $Backgroun/Panel/CreateAccount
+@onready var user_panel =     $Backgroun/Panel/UserPanel
+@onready var load_player =    $Backgroun/Panel/LoadPlayer
+@onready var select_name =    $Backgroun/Panel/SelectName
+@onready var select_type =    $Backgroun/Panel/SelectType
+@onready var select_class =   $Backgroun/Panel/SelectClass
+@onready var confirm_screen = $Backgroun/Panel/ConfirmScreen
 #LOGIN SCREEN
 @onready var username_input =        $Backgroun/Panel/LoginScreen/User/UserText
 @onready var userpassword_input =    $Backgroun/Panel/LoginScreen/Pass/PassText
@@ -23,12 +23,13 @@ extends Control
 @onready var create_new_player_name = $Backgroun/Panel/SelectName/Username
 
 var player_pool
-
 var username
 var nickname 
 var new_class
 var new_type
 var alert = preload("res://Scenes/UI/Alert.tscn")
+
+"""FUNCIONES USO GENERAL"""
 func InstanceAlert(text):
 	var new_alert = alert.instantiate()
 	new_alert.text = text
@@ -46,6 +47,7 @@ func _on_exit_pressed() -> void:
 func _on_back_to_login_pressed() -> void:
 	create_account.hide()
 	login_screen.show()
+
 """CREAR NUEVA CUENTA"""
 func _on_create_account_pressed() -> void:
 	login_screen.hide()
@@ -99,8 +101,6 @@ func _on_load_player_pressed() -> void:
 	var key = "PlayerPool"
 	GameServer.ClientSendDataToServer(key,new_username)
 
-
-
 """NEW CHARACTER"""
 func _on_pick_class_pressed() -> void:
 	if create_new_player_name.text == "":
@@ -139,39 +139,33 @@ func _on_wizard_pressed() -> void:
 	new_type = "wizard"
 	select_type.hide()
 	confirm_screen.show()
-#CONFIRM NEW CHARACTER CREATED
 func _on_create_new_player_pressed() -> void:
 	var key = "NewPlayerRegister"
 	var value = [username,nickname,new_class,new_type]
 	GameServer.ClientSendDataToServer(key, value)
 
-
 """LOAD CHARACTER"""
-
-func PlayerPool(new_player_pool):
-	player_pool = new_player_pool
-	for acount in new_player_pool:
-		for character in new_player_pool[acount]:
+func PlayerPool(value):
+	#value = [player_pool,username]
+	player_pool = value[0]
+	for acount in player_pool:
+		for character in player_pool[acount]:
 			var load_slot = load("res://Scenes/UI/LoadSlot.tscn")
 			var new_load_instance = load_slot.instantiate()
-			print("new_player_pool[acount][character]",new_player_pool[acount][character])
 			new_load_instance.slot_name = character
+			new_load_instance.username = value[1]
 			
-			new_load_instance.slot_level = new_player_pool[acount][character]["Level"]
+			new_load_instance.slot_level = player_pool[acount][character]["Level"]
 			get_node("Backgroun/Panel/LoadPlayer/LoadPlayer").add_child(new_load_instance)
 	user_panel.hide()
 	load_player.show()
-	
 
 """USER PANEL"""
-func OnLoadPressed(new_nickname):
+func OnLoadPressed(value):
+	#value = [slot_name,username]
 	var key = "LoadPlayer"
-	GameServer.ClientSendDataToServer(key, new_nickname)
+	GameServer.ClientSendDataToServer(key, value)
 
-
-	
+"""FALTA APLICAR ESTA TERMINAL ACA """
 func OnDeletePressed(_new_nickname):
 	pass
-	#GameServer.RemoveCharacterFromAccount(new_nickname, username)
-	
-	

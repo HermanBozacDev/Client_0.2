@@ -33,6 +33,7 @@ animations = [{
 }]
 
 [node name="CastFx" type="AnimatedSprite2D"]
+visible = false
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_scffh")

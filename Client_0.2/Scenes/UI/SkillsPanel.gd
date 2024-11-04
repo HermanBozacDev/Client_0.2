@@ -4,10 +4,9 @@ extends Control
 @onready var pasive_skills = $Background/PasiveSkills
 @onready var active_skills = $Background/ActiveSkills
 
-
+"""INIT"""
 func _ready() -> void:
 	var count = 1
-	print("PlayerData.learn_skill_dic",PlayerData.learn_skill_dic)
 	for skill in PlayerData.learn_skill_dic.values():
 		var slot_new = load("res://Scenes/UI/MultiSlot.tscn").instantiate()
 		slot_new.set_name(str(count))
@@ -23,25 +22,20 @@ func _ready() -> void:
 	pasive_skills.hide()
 	active_skills.show()
 
-
+"""ACTIVOS"""
 func _on_active_skills_button_pressed() -> void:
 	pasive_skills.hide()
 	active_skills.show()
 
-
-
+"""PASIVOS"""
 func _on_pasive_skills_button_pressed() -> void:
 	pasive_skills.show()
 	active_skills.hide()
 
-
-
-
-	
+"""ACCION MOVE"""
 func _on_move_pressed() -> void:
-	print("APRETE MOVE VOY A INTENTAR MOVER")
 	PlayerData.move_skill = true
 
-
+"""ACCION INFO"""
 func _on_info_pressed() -> void:
-	print("aca va uno de esos cabezales a la funcion que dije en playerdata al principio del script")
+	pass

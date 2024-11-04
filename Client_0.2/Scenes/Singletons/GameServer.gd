@@ -12,7 +12,6 @@ var latency = 0
 var delta_latency = 0 
 
 """FUNCIONES DE CONFIGURACION PRINCIPALES"""
-
 func _physics_process(delta):
 	client_clock += int (delta*1000) + delta_latency
 	delta_latency -= delta_latency
@@ -25,7 +24,7 @@ func _ready():
 func ConnectToServer():
 	var result = peer.create_client(ip, port)
 	if result != OK:
-		print("Error al intentar conectarse al servidor:", result)
+		#avisar con cartel
 		return
 	multiplayer_api = MultiplayerAPI.create_default_interface()  # Crear instancia de MultiplayerAPI
 	multiplayer_api.multiplayer_peer = peer  # Establecer el peer de juego
@@ -33,9 +32,9 @@ func ConnectToServer():
 	multiplayer.connected_to_server.connect(_on_connection_success)
 	multiplayer.connection_failed.connect(_on_connection_failed)
 func _on_connection_failed() :
-	print("failed to conect to Game server")
+	#coneccion fail avisar con cartel
+	pass
 func _on_connection_success():
-	print("CONNECTION SUCCES TO GAMESERVER")
 	var key = "FetchServerTime"
 	var value = Time.get_ticks_msec()
 	ClientSendDataToServer(key, value)
@@ -48,8 +47,6 @@ func DetermineLatency():
 	var key = "DetermineLatency"
 	var value = Time.get_ticks_msec()
 	ClientSendDataToServer(key, value)
-
-
 
 @rpc func ClientSendDataToServer(key, value):
 	rpc_id(1,"ClientSendDataToServer",key, value)
@@ -78,13 +75,12 @@ func DetermineLatency():
 		"TokenVresult":
 			var login_screen = get_node("/root/SceneHandler/LoginScreen")
 			if value == true:
-				print("successful token verification")
-				print("ID DEL CLIENTE",multiplayer_api.get_unique_id())
 				login_screen.ShowUserPanel()
 			else:
-				print("Login failed, please try again")
+				#login fail
 				login_screen.ResetButtons()
 		"PlayerPool":
+			
 			get_node("/root/SceneHandler/LoginScreen").PlayerPool(value)
 		"PlayerDie":
 			#quiero replicar algo como en el lineage que si te moris aparece un cartel para ira la ciudad 
@@ -95,7 +91,6 @@ func DetermineLatency():
 				var attack_sound_instance = attack_sound.instantiate()
 				add_child(attack_sound_instance)
 		"UpdateInventory":
-			print("despues de matar un enemigo recivo un nuevo inventario",value)
 			PlayerData.inventory_dic = value
 		"UpdateSkills":
 			PlayerData.learn_skill_dic = value
@@ -105,10 +100,13 @@ func DetermineLatency():
 			PlayerData.SpawnClientPlayer(key,value)
 		"Teleport":
 			PlayerData.SpawnClientPlayer(key,value)
+		"EquipItem":
+			PlayerData.EquipItem(value)
 
 @rpc func ServerSendDataToAllClients(key,value):
 	match key:
 		"DespawnPlayer":
+			#aca tengo que modularizar para que lo mande al mapa actual
 			#value = player_id
 			if !get_node("../SceneHandler/CiudadPrincipal"):
 				return
@@ -121,9 +119,8 @@ func DetermineLatency():
 				get_node("/root/SceneHandler/" + str(value[4]) +  "/MapElements/OtherPlayers/" + str( value[5])).attack_dict[value[2]] = {"Position" : value[0], "AnimationVector" : value[1],"Rotation": value[3]}
 				get_node("/root/SceneHandler/" + str(value[4]) +  "/MapElements/OtherPlayers/" + str( value[5])).attack()
 
-
 @rpc func ServerSendWorldState(world_state):
-	#print("world_state",world_state)
+	
 	for map in world_state.keys():
 		match map:
 			"CiudadPrincipal":

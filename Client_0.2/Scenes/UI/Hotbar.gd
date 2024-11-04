@@ -1,10 +1,9 @@
 extends Control
 
 
-
+"""INIT"""
 func _ready():
 	for i in range(1,10):
-		
 		var slot_new = load("res://Scenes/UI/MultiSlot.tscn").instantiate()
 		slot_new.set_name(str(i))
 		slot_new.group = "hotbar"
@@ -15,6 +14,6 @@ func _ready():
 			slot_new.id = PlayerData.hot_bar_dic[str(i)][0]
 		get_node("Panel/HBoxContainer").add_child(slot_new)
 
-
+"""ACTIVADOR DEL BOTON DE DELETE"""
 func _on_delete_hotbar_slot_pressed() -> void:
 	PlayerData.DeleteHotbarSlot = true

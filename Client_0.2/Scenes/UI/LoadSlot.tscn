@@ -1,19 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://87g8atio8cr6"]
+[gd_scene load_steps=7 format=3 uid="uid://87g8atio8cr6"]
 
 [ext_resource type="Script" path="res://Scenes/UI/LoadSlot.gd" id="1_75rsd"]
-[ext_resource type="Texture2D" uid="uid://b5a6olytlq4l5" path="res://Resources/Tilesets/basictiles.png" id="1_qxwww"]
-[ext_resource type="Texture2D" uid="uid://bs3i47a078ar0" path="res://Resources/GUI/Button_normal.png" id="2_d60d6"]
-[ext_resource type="Texture2D" uid="uid://b2mg5jll3m07p" path="res://Resources/GUI/Button_pressed.png" id="3_88qri"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l10cp"]
-texture = ExtResource("1_qxwww")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-region_rect = Rect2(92, 220, 24, 24)
+[ext_resource type="StyleBox" uid="uid://ywcn3cgik6ty" path="res://Scenes/UI/NewStyle.tres" id="2_momnj"]
+[ext_resource type="Texture2D" uid="uid://davo7o2tx7jkt" path="res://Resources/GUI/Buttons/LoadPlayer.png" id="3_oukb8"]
+[ext_resource type="Texture2D" uid="uid://ba6inwgkbld3y" path="res://Resources/GUI/Buttons/LoadPlayerPressed.png" id="4_tkx6u"]
+[ext_resource type="Texture2D" uid="uid://jj6gqsnmqqwx" path="res://Resources/GUI/Buttons/DeleteButton.png" id="5_44y5a"]
+[ext_resource type="Texture2D" uid="uid://dffj0cyv8vcwa" path="res://Resources/GUI/Buttons/DeleteButtonPressed.png" id="6_ygw4h"]
 
 [node name="LoadSlot" type="Control" groups=["LoadSlot"]]
+texture_filter = 1
 custom_minimum_size = Vector2(256, 16)
 layout_mode = 3
 anchors_preset = 8
@@ -30,15 +25,16 @@ grow_vertical = 2
 script = ExtResource("1_75rsd")
 
 [node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(256, 20)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.25
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_l10cp")
+theme_override_styles/panel = ExtResource("2_momnj")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="HBoxContainer" type="Control" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,10 +44,15 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
 layout_mode = 2
+offset_bottom = 20.0
 
 [node name="CharacterTitle" type="Label" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 15.0
 theme_override_font_sizes/font_size = 7
 text = "NAME: "
 horizontal_alignment = 1
@@ -60,6 +61,10 @@ vertical_alignment = 1
 [node name="CharacterName" type="Label" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+offset_left = 48.0
+offset_top = 4.0
+offset_right = 88.0
+offset_bottom = 15.0
 theme_override_font_sizes/font_size = 7
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -67,6 +72,10 @@ vertical_alignment = 1
 [node name="CharacterLevelTitle" type="Label" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+offset_left = 92.0
+offset_top = 4.0
+offset_right = 132.0
+offset_bottom = 15.0
 theme_override_font_sizes/font_size = 7
 text = "LEVEL:"
 horizontal_alignment = 1
@@ -75,6 +84,10 @@ vertical_alignment = 1
 [node name="CharacterLevel" type="Label" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+offset_left = 136.0
+offset_top = 4.0
+offset_right = 176.0
+offset_bottom = 15.0
 theme_override_font_sizes/font_size = 7
 text = "
 "
@@ -84,42 +97,26 @@ vertical_alignment = 1
 [node name="Load" type="TextureButton" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(32, 16)
 layout_mode = 2
-texture_normal = ExtResource("2_d60d6")
-texture_pressed = ExtResource("3_88qri")
+offset_left = 179.0
+offset_top = 2.0
+offset_right = 211.0
+offset_bottom = 18.0
+texture_normal = ExtResource("3_oukb8")
+texture_pressed = ExtResource("4_tkx6u")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Load"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 7
-text = "LOAD"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Delete" type="TextureButton" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(32, 16)
 layout_mode = 2
-texture_normal = ExtResource("2_d60d6")
-texture_pressed = ExtResource("3_88qri")
+offset_left = 216.0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 18.0
+texture_normal = ExtResource("5_44y5a")
+texture_pressed = ExtResource("6_ygw4h")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Delete"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 7
-text = "DELETE"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="Panel/HBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/Delete" to="." method="_on_delete_pressed"]

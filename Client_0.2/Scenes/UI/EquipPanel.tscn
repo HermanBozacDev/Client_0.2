@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3k31toijrllv"]
+[gd_scene load_steps=6 format=3 uid="uid://b3k31toijrllv"]
 
+[ext_resource type="Script" path="res://Scenes/UI/EquipPanel.gd" id="1_mingk"]
 [ext_resource type="Texture2D" uid="uid://bnrai4i5kisvc" path="res://Resources/GUI/InventoryBackground.png" id="2_07ph8"]
 [ext_resource type="PackedScene" uid="uid://cvaard06nb5lg" path="res://Scenes/UI/MultiSlot.tscn" id="3_303uy"]
 [ext_resource type="Texture2D" uid="uid://bdjyxmpijarxb" path="res://Resources/GUI/Button2.png" id="4_kv8c4"]
@@ -19,6 +20,7 @@ offset_right = -0.200012
 offset_bottom = -3.88
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mingk")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -59,29 +61,43 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 5
 
-[node name="MultiSlot" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+[node name="Hats" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
 layout_mode = 2
+type = "equip"
+subType = "Hats"
 
-[node name="MultiSlot2" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+[node name="Gloves" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
 layout_mode = 2
+type = "equip"
+subType = "Gloves"
 
-[node name="MultiSlot3" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+[node name="Weapons" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
 layout_mode = 2
+type = "equip"
+subType = "Weapons"
 
-[node name="MultiSlot4" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
+[node name="Wings" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
 layout_mode = 2
+type = "equip"
+subType = "Wings"
 
 [node name="MultiSlot5" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
 layout_mode = 2
 
 [node name="MultiSlot6" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
 layout_mode = 2
+type = "equip"
+subType = "Armors"
 
 [node name="MultiSlot7" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
 layout_mode = 2
+type = "equip"
+subType = "Boots"
 
 [node name="MultiSlot8" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
 layout_mode = 2
+type = "equip"
+subType = "Shields"
 
 [node name="MultiSlot9" parent="Background/Equip1/Grid" instance=ExtResource("3_303uy")]
 layout_mode = 2

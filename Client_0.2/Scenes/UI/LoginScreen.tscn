@@ -1,18 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf3wjbcv8u4n3"]
+[gd_scene load_steps=28 format=3 uid="uid://cf3wjbcv8u4n3"]
 
 [ext_resource type="Script" path="res://Scenes/UI/LoginScreen.gd" id="1_6r5f8"]
 [ext_resource type="Texture2D" uid="uid://b4wtt67vakbsv" path="res://Resources/GUI/TDF1.png" id="1_uy72n"]
 [ext_resource type="StyleBox" uid="uid://ekqi36dneroh" path="res://Scenes/UI/PatronStyle.tres" id="2_jvgir"]
 [ext_resource type="StyleBox" uid="uid://c0j40co6qeyp4" path="res://Scenes/UI/Focused.tres" id="3_mv2ea"]
+[ext_resource type="Texture2D" uid="uid://0mx7bj6wt01r" path="res://Resources/GUI/UserLetters.png" id="4_7jbhu"]
 [ext_resource type="Texture2D" uid="uid://bs3i47a078ar0" path="res://Resources/GUI/Button_normal.png" id="4_53kv1"]
 [ext_resource type="Texture2D" uid="uid://b2mg5jll3m07p" path="res://Resources/GUI/Button_pressed.png" id="5_av2uu"]
+[ext_resource type="Texture2D" uid="uid://d25aa2oc4mxi5" path="res://Resources/GUI/PassLetters.png" id="5_gwyp1"]
+[ext_resource type="Texture2D" uid="uid://dbeiwmcj2gx7j" path="res://Resources/GUI/Buttons/ConnectButton.png" id="6_6col1"]
+[ext_resource type="Texture2D" uid="uid://dedoifc7655gw" path="res://Resources/GUI/Buttons/ConnectButtonPressed.png" id="7_goysx"]
+[ext_resource type="StyleBox" uid="uid://ywcn3cgik6ty" path="res://Scenes/UI/NewStyle.tres" id="7_nbska"]
+[ext_resource type="Texture2D" uid="uid://b8w4jnhnqtqes" path="res://Resources/GUI/Buttons/RegisterButton.png" id="8_f5x56"]
+[ext_resource type="Texture2D" uid="uid://cxppj8t612a76" path="res://Resources/GUI/Buttons/RegisterButtonPressed.png" id="9_av8tj"]
+[ext_resource type="Texture2D" uid="uid://c3xyr18v7naa2" path="res://Resources/GUI/LogoTitle.png" id="10_5bxmn"]
+[ext_resource type="Texture2D" uid="uid://bswsmbsvucagc" path="res://Resources/GUI/Buttons/ExitButton.png" id="10_m3vnu"]
+[ext_resource type="Texture2D" uid="uid://i7w1urktjr80" path="res://Resources/GUI/Buttons/ExitButtonPressed.png" id="11_xnvpv"]
+[ext_resource type="Texture2D" uid="uid://b1qbf7s4cf8gu" path="res://Resources/GUI/Buttons/ConfirmButton.png" id="12_r0as3"]
+[ext_resource type="Texture2D" uid="uid://dqoik6dsjxdi3" path="res://Resources/GUI/Buttons/ConfirmButtonPressed.png" id="13_vyqun"]
+[ext_resource type="Texture2D" uid="uid://g71xd08tfbrp" path="res://Resources/GUI/Buttons/BackButton.png" id="14_jcjqm"]
+[ext_resource type="Texture2D" uid="uid://chm7qlrm7jypr" path="res://Resources/GUI/Buttons/BackButtonPressed.png" id="15_p4o3e"]
+[ext_resource type="Texture2D" uid="uid://bptr6g7vdbflp" path="res://Resources/GUI/Buttons/NewPlayerButton.png" id="16_aykkf"]
+[ext_resource type="Texture2D" uid="uid://bi7pgjoman7b6" path="res://Resources/GUI/Buttons/NewPlayerButtonPressed.png" id="17_fcubt"]
+[ext_resource type="Texture2D" uid="uid://davo7o2tx7jkt" path="res://Resources/GUI/Buttons/LoadPlayer.png" id="18_p6o8y"]
+[ext_resource type="Texture2D" uid="uid://ba6inwgkbld3y" path="res://Resources/GUI/Buttons/LoadPlayerPressed.png" id="19_43gt7"]
+[ext_resource type="Texture2D" uid="uid://ipxtawj10jwn" path="res://Resources/GUI/Letters/SelectNickname.png" id="20_qrlmk"]
+[ext_resource type="Texture2D" uid="uid://0or4smwrvyug" path="res://Resources/GUI/Buttons/ClassButton.png" id="23_m16iu"]
+[ext_resource type="Texture2D" uid="uid://dsh4fcr208j7g" path="res://Resources/GUI/Buttons/ClassButtonPressed.png" id="24_f5lt7"]
 
 [node name="LoginScreen" type="Control" groups=["LoginScreen"]]
 texture_filter = 1
 layout_mode = 3
-anchors_preset = 15
+anchor_left = 0.136
+anchor_top = 0.171
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -65.28
+offset_top = -54.72
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6r5f8")
@@ -26,137 +50,167 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_uy72n")
 
-[node name="Panel" type="Panel" parent="Backgroun"]
-custom_minimum_size = Vector2(256, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.716
-anchor_right = 0.5
-anchor_bottom = 0.716
-offset_left = -126.0
-offset_top = -82.12
-offset_right = 130.0
-offset_bottom = 81.88
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_jvgir")
-
-[node name="LoginScreen" type="VBoxContainer" parent="Backgroun/Panel"]
+[node name="Panel" type="Control" parent="Backgroun"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
-[node name="User" type="HBoxContainer" parent="Backgroun/Panel/LoginScreen"]
-layout_mode = 2
-alignment = 1
+[node name="LoginScreen" type="Control" parent="Backgroun/Panel"]
+layout_mode = 1
+anchor_left = 0.417
+anchor_top = 0.375
+anchor_right = 0.633
+anchor_bottom = 0.55
+offset_left = 39.84
+offset_top = 40.0
+offset_right = -63.84
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/User"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "USERNAME"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="User" type="Control" parent="Backgroun/Panel/LoginScreen"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = -32.0
 
 [node name="UserText" type="LineEdit" parent="Backgroun/Panel/LoginScreen/User"]
 custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -10.0
+offset_right = 32.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = ExtResource("3_mv2ea")
-theme_override_styles/normal = ExtResource("2_jvgir")
+theme_override_styles/focus = ExtResource("7_nbska")
+theme_override_styles/normal = ExtResource("7_nbska")
 text = "1111"
-
-[node name="Pass" type="HBoxContainer" parent="Backgroun/Panel/LoginScreen"]
-layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/Pass"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "PASSWORD"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="UserLetters" type="TextureRect" parent="Backgroun/Panel/LoginScreen/User"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+texture = ExtResource("4_7jbhu")
+
+[node name="Pass" type="Control" parent="Backgroun/Panel/LoginScreen"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 16.0
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = -8.0
 
 [node name="PassText" type="LineEdit" parent="Backgroun/Panel/LoginScreen/Pass"]
 custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -10.0
+offset_right = 32.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = ExtResource("3_mv2ea")
-theme_override_styles/normal = ExtResource("2_jvgir")
+theme_override_styles/focus = ExtResource("7_nbska")
+theme_override_styles/normal = ExtResource("7_nbska")
 text = "12341234"
+alignment = 1
 secret = true
 
-[node name="Buttons" type="HBoxContainer" parent="Backgroun/Panel/LoginScreen"]
-layout_mode = 2
-alignment = 1
+[node name="PassLetters" type="TextureRect" parent="Backgroun/Panel/LoginScreen/Pass"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
+texture = ExtResource("5_gwyp1")
+
+[node name="Buttons" type="Control" parent="Backgroun/Panel/LoginScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 120.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Login" type="TextureButton" parent="Backgroun/Panel/LoginScreen/Buttons"]
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 2
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -8.0
+offset_right = -32.0
+offset_bottom = 12.0
+grow_vertical = 2
+texture_normal = ExtResource("6_6col1")
+texture_pressed = ExtResource("7_goysx")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/Buttons/Login"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "LOGIN"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="CreateAccount" type="TextureButton" parent="Backgroun/Panel/LoginScreen/Buttons"]
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 2
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/Buttons/CreateAccount"]
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "REGISTER"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture_normal = ExtResource("8_f5x56")
+texture_pressed = ExtResource("9_av8tj")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Exit" type="TextureButton" parent="Backgroun/Panel/LoginScreen/Buttons"]
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 2
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 96.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("10_m3vnu")
+texture_pressed = ExtResource("11_xnvpv")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Backgroun/Panel/LoginScreen/Buttons/Exit"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "EXIT"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CreateAccount" type="VBoxContainer" parent="Backgroun/Panel"]
+[node name="CreateAccount" type="Control" parent="Backgroun/Panel"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -164,10 +218,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
 [node name="aux" type="HBoxContainer" parent="Backgroun/Panel/CreateAccount"]
 layout_mode = 2
+offset_top = 108.0
+offset_right = 480.0
+offset_bottom = 212.0
 alignment = 1
 
 [node name="aux" type="VBoxContainer" parent="Backgroun/Panel/CreateAccount/aux"]
@@ -177,104 +233,67 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/aux/Username"]
-custom_minimum_size = Vector2(48, 0)
+[node name="UserLetters" type="TextureRect" parent="Backgroun/Panel/CreateAccount/aux/aux/Username"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "USERNAME"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("4_7jbhu")
 
 [node name="Username" type="LineEdit" parent="Backgroun/Panel/CreateAccount/aux/aux/Username"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = ExtResource("3_mv2ea")
-theme_override_styles/normal = ExtResource("2_jvgir")
+theme_override_styles/focus = ExtResource("7_nbska")
+theme_override_styles/normal = ExtResource("7_nbska")
 
 [node name="Password" type="HBoxContainer" parent="Backgroun/Panel/CreateAccount/aux/aux"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/aux/Password"]
-custom_minimum_size = Vector2(48, 0)
+[node name="PassLetters" type="TextureRect" parent="Backgroun/Panel/CreateAccount/aux/aux/Password"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "PASSWORD"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("5_gwyp1")
 
 [node name="Password" type="LineEdit" parent="Backgroun/Panel/CreateAccount/aux/aux/Password"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = ExtResource("3_mv2ea")
-theme_override_styles/normal = ExtResource("2_jvgir")
+theme_override_styles/focus = ExtResource("7_nbska")
+theme_override_styles/normal = ExtResource("7_nbska")
 secret = true
 
 [node name="RepeatPassword" type="HBoxContainer" parent="Backgroun/Panel/CreateAccount/aux/aux"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/aux/RepeatPassword"]
-custom_minimum_size = Vector2(48, 0)
+[node name="PassLetters" type="TextureRect" parent="Backgroun/Panel/CreateAccount/aux/aux/RepeatPassword"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "PASSWORD"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("5_gwyp1")
 
 [node name="RepeatPassword" type="LineEdit" parent="Backgroun/Panel/CreateAccount/aux/aux/RepeatPassword"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = ExtResource("3_mv2ea")
-theme_override_styles/normal = ExtResource("2_jvgir")
+theme_override_styles/focus = ExtResource("7_nbska")
+theme_override_styles/normal = ExtResource("7_nbska")
 secret = true
 
 [node name="Buttons" type="VBoxContainer" parent="Backgroun/Panel/CreateAccount/aux"]
 layout_mode = 2
-alignment = 1
 
 [node name="Confirm" type="TextureButton" parent="Backgroun/Panel/CreateAccount/aux/Buttons"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
+texture_normal = ExtResource("12_r0as3")
+texture_pressed = ExtResource("13_vyqun")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/Buttons/Confirm"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "CONFIRM"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="BackToLogin" type="TextureButton" parent="Backgroun/Panel/CreateAccount/aux/Buttons"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
+texture_normal = ExtResource("14_jcjqm")
+texture_pressed = ExtResource("15_p4o3e")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="Label" type="Label" parent="Backgroun/Panel/CreateAccount/aux/Buttons/BackToLogin"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "BACK "
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="UserPanel" type="VBoxContainer" parent="Backgroun/Panel"]
 visible = false
@@ -285,92 +304,70 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -32.0
-offset_top = -34.0
+offset_top = -32.0
 offset_right = 32.0
-offset_bottom = 34.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="NewPlayer" type="TextureButton" parent="Backgroun/Panel/UserPanel"]
-custom_minimum_size = Vector2(80, 32)
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
+texture_normal = ExtResource("16_aykkf")
+texture_pressed = ExtResource("17_fcubt")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="Label" type="Label" parent="Backgroun/Panel/UserPanel/NewPlayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "NEW PLAYER"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="LoadPlayer" type="TextureButton" parent="Backgroun/Panel/UserPanel"]
-custom_minimum_size = Vector2(80, 32)
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
+texture_normal = ExtResource("18_p6o8y")
+texture_pressed = ExtResource("19_43gt7")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Backgroun/Panel/UserPanel/LoadPlayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "LOAD PLAYER"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LoadPlayer" type="VBoxContainer" parent="Backgroun/Panel"]
+[node name="LoadPlayer" type="Control" parent="Backgroun/Panel"]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchor_left = 0.233
+anchor_top = 0.4
+anchor_right = 0.8
 anchor_bottom = 1.0
+offset_left = 0.159996
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Backgroun/Panel/LoadPlayer"]
 layout_mode = 2
-
-[node name="Back" type="TextureButton" parent="Backgroun/Panel/LoadPlayer"]
-custom_minimum_size = Vector2(64, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="Backgroun/Panel/LoadPlayer/Back"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "BACK"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_right = 480.0
 
 [node name="LoadPlayer" type="VBoxContainer" parent="Backgroun/Panel/LoadPlayer"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -96.0
+offset_right = 136.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="SelectName" type="VBoxContainer" parent="Backgroun/Panel"]
+[node name="Back" type="TextureButton" parent="Backgroun/Panel/LoadPlayer/LoadPlayer"]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("14_jcjqm")
+texture_pressed = ExtResource("15_p4o3e")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SelectName" type="Control" parent="Backgroun/Panel"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -378,68 +375,52 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -60.0
-offset_right = 40.0
-offset_bottom = 60.0
+offset_left = -64.0
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
-[node name="Label" type="Label" parent="Backgroun/Panel/SelectName"]
-custom_minimum_size = Vector2(48, 0)
+[node name="TextureRect" type="TextureRect" parent="Backgroun/Panel/SelectName"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "SELECT NICKNAME"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 5.0
+offset_right = 133.0
+offset_bottom = 16.0
+texture = ExtResource("20_qrlmk")
 
 [node name="Username" type="LineEdit" parent="Backgroun/Panel/SelectName"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(128, 32)
 layout_mode = 2
+offset_top = 24.0
+offset_right = 128.0
+offset_bottom = 56.0
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = ExtResource("3_mv2ea")
 theme_override_styles/normal = ExtResource("2_jvgir")
+alignment = 1
 
 [node name="PickClass" type="TextureButton" parent="Backgroun/Panel/SelectName"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
-ignore_texture_size = true
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 84.0
+texture_normal = ExtResource("23_m16iu")
+texture_pressed = ExtResource("24_f5lt7")
 stretch_mode = 0
-
-[node name="Label" type="Label" parent="Backgroun/Panel/SelectName/PickClass"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "SELECT CLASS"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Back" type="TextureButton" parent="Backgroun/Panel/SelectName"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
-texture_normal = ExtResource("4_53kv1")
-texture_pressed = ExtResource("5_av2uu")
-ignore_texture_size = true
+offset_left = 32.0
+offset_top = 92.0
+offset_right = 96.0
+offset_bottom = 112.0
+texture_normal = ExtResource("14_jcjqm")
+texture_pressed = ExtResource("15_p4o3e")
 stretch_mode = 0
-
-[node name="Label" type="Label" parent="Backgroun/Panel/SelectName/Back"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 8
-text = "BACK"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="SelectType" type="VBoxContainer" parent="Backgroun/Panel"]
 visible = false
@@ -700,6 +681,10 @@ text = "BACK"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LogoTitle" type="Sprite2D" parent="."]
+position = Vector2(240, 64)
+texture = ExtResource("10_5bxmn")
+
 [connection signal="pressed" from="Backgroun/Panel/LoginScreen/Buttons/Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/LoginScreen/Buttons/CreateAccount" to="." method="_on_create_account_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/LoginScreen/Buttons/Exit" to="." method="_on_exit_pressed"]
@@ -707,7 +692,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="Backgroun/Panel/CreateAccount/aux/Buttons/BackToLogin" to="." method="_on_back_to_login_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/UserPanel/NewPlayer" to="." method="_on_new_player_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/UserPanel/LoadPlayer" to="." method="_on_load_player_pressed"]
-[connection signal="pressed" from="Backgroun/Panel/LoadPlayer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Backgroun/Panel/LoadPlayer/LoadPlayer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/SelectName/PickClass" to="." method="_on_pick_class_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/SelectName/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Backgroun/Panel/SelectType/Fighter" to="." method="_on_fighter_pressed"]
