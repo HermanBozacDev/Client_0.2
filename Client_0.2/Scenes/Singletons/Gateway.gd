@@ -2,7 +2,7 @@ extends Node
 
 var multiplayer_api: MultiplayerAPI
 var peer: ENetMultiplayerPeer = ENetMultiplayerPeer.new()
-var ip: String = "127.0.0.1"  # Cambia la IP si es necesario
+var ip: String = "147.93.15.197"  # Cambia la IP si es necesario
 var port: int = 1910  # Debe coincidir con el puerto del servidor
 var username
 var password
