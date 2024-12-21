@@ -1,7 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://q6pg8h3j67hb"]
+[gd_scene load_steps=12 format=3 uid="uid://q6pg8h3j67hb"]
 
+[ext_resource type="Texture2D" uid="uid://cl0t7vo3f0bp" path="res://Resources/Skills/CastingFX/CastingFX2.png" id="1_jmork"]
 [ext_resource type="Texture2D" uid="uid://c5jojukaw623g" path="res://Resources/Skills/CastingFX/CastingFX1.png" id="1_m0nqr"]
 [ext_resource type="Script" path="res://Scenes/Skills/CastFx.gd" id="2_w80if"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1aq"]
+atlas = ExtResource("1_jmork")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jtt0"]
+atlas = ExtResource("1_jmork")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ar24"]
+atlas = ExtResource("1_jmork")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4veyd"]
+atlas = ExtResource("1_jmork")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6d08g"]
 atlas = ExtResource("1_m0nqr")
@@ -17,6 +34,23 @@ region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_scffh"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jtt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ar24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4veyd")
+}],
+"loop": true,
+"name": &"FX2",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6d08g")
@@ -37,5 +71,6 @@ visible = false
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_scffh")
-frame_progress = 0.145837
+animation = &"FX2"
+frame_progress = 0.223812
 script = ExtResource("2_w80if")

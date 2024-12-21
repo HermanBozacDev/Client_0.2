@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://62npesj0binm"]
+[gd_scene load_steps=26 format=3 uid="uid://62npesj0binm"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerTemplate.gd" id="1_eyokv"]
-[ext_resource type="Texture2D" uid="uid://dvoxqc53t0hoh" path="res://Resources/Players/Players/DarkElf/DarkElf.png" id="2_nl0nb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aujjn"]
 radius = 8.0
@@ -226,10 +225,8 @@ script = ExtResource("1_eyokv")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_nl0nb")
 hframes = 10
 vframes = 4
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_aujjn")
@@ -251,3 +248,14 @@ parameters/Walk/blend_position = Vector2(-0.34346, 0.580099)
 
 [node name="Position2D" type="Marker2D" parent="TurnAxis"]
 position = Vector2(16, 0)
+
+[node name="Nickname" type="Label" parent="."]
+custom_minimum_size = Vector2(16, 8)
+offset_left = -8.0
+offset_top = -19.0
+offset_right = 8.0
+offset_bottom = -11.0
+theme_override_font_sizes/font_size = 4
+text = "pepito"
+horizontal_alignment = 1
+vertical_alignment = 1

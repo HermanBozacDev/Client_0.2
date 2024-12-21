@@ -141,6 +141,8 @@ func _on_texture_pressed() -> void:
 
 """DESCELECCION"""
 func DeseleccionarSlotSeleccionado():
+	for node in get_tree().get_nodes_in_group("InformationPanel"):
+		node.queue_free()
 	PlayerData.selected = false
 	PlayerData.key_id = null
 	PlayerData.key_type = null
@@ -160,6 +162,16 @@ func SeleccionarNuevoSlot():
 	PlayerData.key_id = id
 	PlayerData.key_type = type
 	PlayerData.key_correlative = str(get_name())
+	if PlayerData.learn_skill_dic.has(PlayerData.key_id):
+		print("soy un skill")
+		var key = "Information"
+		var value = ["Skill",PlayerData.key_id,"SkillDescription","Information"]
+		GameServer.ClientSendDataToServer(key,value)
+	else:
+		print("soy un Item")
+		var key = "Information"
+		var value = ["Item",PlayerData.key_id,"ItemDescription","Information"]
+		GameServer.ClientSendDataToServer(key,value)
 
 """BORRAR SLOT DEL HOTBAR"""
 func DeleteHotbarSlot():
@@ -190,8 +202,9 @@ func MoveSkill():
 		PlayerData.key_type = null
 		PlayerData.move_skill = false
 		PlayerData.selected = false
-
 func MoveItem():
+	for node in get_tree().get_nodes_in_group("InformationPanel"):
+		node.queue_free()
 	#CUANDO MUEVO UN ITEM POR EL INVENTARIO PODRIA FIJARME SI ESTA EN EL HOTBAR Y ACTUALIZAR EL NUMERO DE REFERENCIA TAMBIEN.
 	match PlayerData.key_group:
 		"inventory":
@@ -231,8 +244,8 @@ func MoveItem():
 			PlayerData.selected = false
 
 
-			
-	
+				
+		
 
 
 
@@ -268,7 +281,6 @@ func MoveItem():
 			
 		"skills":
 			pass
-
 
 """TIMER QUE REINICIA LA VISUAL VOY A VER SI ES NECESARIO"""
 func _on_timer_timeout() -> void:

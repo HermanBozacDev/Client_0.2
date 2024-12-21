@@ -20,4 +20,4 @@ func _on_load_pressed() -> void:
 """BOTON DELETE EN LOAD SLOT TODAVIA NO ESTA APLICADO ESTO"""
 func _on_delete_pressed() -> void:
 	var value = [slot_name,username]
-	get_node("/root/SceneHandler/LoginScreen").OnDeletePressed(value)
+	get_node("/root/SceneHandler/LoginScreen").OnDeletePressed(value,self)

@@ -167,5 +167,8 @@ func OnLoadPressed(value):
 	GameServer.ClientSendDataToServer(key, value)
 
 """FALTA APLICAR ESTA TERMINAL ACA """
-func OnDeletePressed(_new_nickname):
-	pass
+func OnDeletePressed(new_nickname,node):
+	var key = "DeletePlayer"
+	GameServer.ClientSendDataToServer(key, new_nickname)
+	node.queue_free()
+	#al palyer lo borra pero no funciono el aviso correcamente asique lo borre por ahora

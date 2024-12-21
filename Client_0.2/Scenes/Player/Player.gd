@@ -21,16 +21,12 @@ var dwarven_texture = load("res://Resources/Players/Dwarf/Dwarf.png")
 @onready var animation_tree = get_node("AnimationTree")
 @onready var animation_mode = animation_tree.get("parameters/playback")
 @onready var sprite = get_node("Sprite")
-
-
-
-
-
-
-
+@onready var nickname = $Nickname
 
 """INIT"""
 func _ready() -> void:
+	nickname.set_text(PlayerData.player_name)
+	animation_mode.travel("Idle")
 	match PlayerData.player_class:
 		"darkelf":
 			
@@ -67,29 +63,15 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Esc"):
 		for node in get_tree().get_nodes_in_group("Panel"):
 			node.queue_free()
+		for node in get_tree().get_nodes_in_group("InformationPanel"):
+			node.queue_free()
 	if Input.is_action_pressed("s"):
 		moving = false
 	if Input.is_action_pressed("SpaceBar"):
 		if attacking == false:
 			moving = false
 			attacking = true
-			var skill = preload("res://Scenes/Skills/FisicAttack.tscn")
-			var skill_instance = skill.instantiate()
-			set_variables()
-			destination = position
-			
-			var a_rotation = angle_to_mouse_position
-			get_node("TurnAxis").rotation = a_rotation
-			skill_instance.rotation = a_rotation
-			
-			var a_position =  (get_node("TurnAxis/Position2D").get_global_position()-get_global_position())
-			skill_instance.position = a_position
-			
-			add_child(skill_instance)
-			animation_vector = position.direction_to(get_global_mouse_position()).normalized()   
-			var value = ["FisicAttack","BasicAttack",a_rotation,a_position, animation_vector, GameServer.client_clock,PlayerData.player_map,get_node("TurnAxis/Position2D").get_global_position()]
-			var key = "PlayerAttack"
-			GameServer.ClientSendDataToServer(key, value)
+			PlayerData.MeleeBasicAttack()
 			await (get_tree().create_timer(1).timeout)
 			attacking = false
 		else:
@@ -108,10 +90,9 @@ func _physics_process(_delta: float) -> void:
 
 """FUNCION DE MOVE"""
 func Move():
-	print("mmoveee")
 	var movement = position.direction_to(destination) * speed
 	if position.distance_to(destination) > 4:
-		speed = 200
+		speed = 60
 		velocity = movement
 		move_and_slide()
 		animation_vector = movement.normalized()

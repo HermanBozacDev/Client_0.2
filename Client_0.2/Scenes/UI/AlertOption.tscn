@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://nfopt87qkjsf"]
+
+[ext_resource type="Script" path="res://Scenes/UI/AlertOption.gd" id="1_sqcvb"]
+[ext_resource type="StyleBox" uid="uid://ekqi36dneroh" path="res://Scenes/UI/PatronStyle.tres" id="2_0i1bl"]
+[ext_resource type="Texture2D" uid="uid://bs3i47a078ar0" path="res://Resources/GUI/Button_normal.png" id="3_i66y8"]
+[ext_resource type="Texture2D" uid="uid://b2mg5jll3m07p" path="res://Resources/GUI/Button_pressed.png" id="4_m1ium"]
+
+[node name="AlertOption" type="Control" groups=["Alert"]]
+custom_minimum_size = Vector2(124, 64)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 38.0
+offset_right = 69.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sqcvb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_0i1bl")
+
+[node name="Body" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 16.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Body"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Yes" type="TextureButton" parent="Panel/Body"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 2
+texture_normal = ExtResource("3_i66y8")
+texture_pressed = ExtResource("4_m1ium")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/Body/Yes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 5
+text = "YES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="No" type="TextureButton" parent="Panel/Body"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 2
+texture_normal = ExtResource("3_i66y8")
+texture_pressed = ExtResource("4_m1ium")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/Body/No"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 5
+text = "NO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/Body/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Panel/Body/No" to="." method="_on_no_pressed"]

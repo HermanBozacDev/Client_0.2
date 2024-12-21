@@ -1,6 +1,6 @@
 extends Node2D
 
-const interpolation_offset = 10
+const interpolation_offset = 50
 var player_spawn = preload("res://Scenes/Player/PlayerTemplate.tscn")
 var instantiated_players = {}
 var last_world_state = 0
@@ -40,8 +40,6 @@ func _physics_process(_delta):
 			world_state_buffer.remove_at(0)
 		if world_state_buffer.size() > 2:
 			WithFutureState()
-		elif render_time > world_state_buffer[1].T:
-			NoFotureState()
 
 """CON ESTADO FUTURO"""
 func WithFutureState():
@@ -85,21 +83,7 @@ func WithFutureState():
 			else:
 				SpawnNewEnemy(enemy, world_state_buffer[2]["CiudadPrincipal"][enemy])
 
-"""SIN ESTADO FUTURO"""
-func NoFotureState():
-	for player in world_state_buffer[1].keys():
-		if str(player) in ["T", "CiudadPrincipal"]:
-			continue
-		if str(player) == "Mapa2":
-			continue
-		if player == str(GameServer.multiplayer_api.get_unique_id()):
-			continue
-		if not world_state_buffer[0].has(player):
-			continue
-		if other_players_node.has_node(str(player)):
-			var new_position =  Vector2(world_state_buffer[1][player]["Px"], world_state_buffer[1][player]["Py"])
-			var animation_vector = world_state_buffer[1][player]["A"]
-			other_players_node.get_node(str(player)).MovePlayer(new_position,animation_vector)
+
 
 """ACTUALIZO EL WORLD STATE CON EL ESTADO QUE LLEGA DEL SERVIDOR"""
 func UpdateWorldState(world_state):

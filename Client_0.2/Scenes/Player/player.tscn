@@ -1,11 +1,82 @@
-[gd_scene load_steps=26 format=3 uid="uid://db7w341g3buvi"]
+[gd_scene load_steps=37 format=3 uid="uid://db7w341g3buvi"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_v427t"]
+[ext_resource type="PackedScene" uid="uid://q6pg8h3j67hb" path="res://Scenes/Skills/CastFx.tscn" id="2_3bm8b"]
 [ext_resource type="Texture2D" uid="uid://dvoxqc53t0hoh" path="res://Resources/Players/DarkElf/DarkElf.png" id="2_wg3so"]
+[ext_resource type="Texture2D" uid="uid://bye711bh400ja" path="res://Resources/Skills/FX/MeleeAttack.png" id="3_jktc4"]
 [ext_resource type="PackedScene" uid="uid://bkinc388lt5ck" path="res://Scenes/Skills/CastBar.tscn" id="3_py522"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aujjn"]
 radius = 6.0
+
+[sub_resource type="Animation" id="Animation_fe4sy"]
+resource_name = "Attack_E"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [33, 36, 34, 33]
+}
+
+[sub_resource type="Animation" id="Animation_6a84g"]
+resource_name = "Attack_N"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [13, 16, 14, 13]
+}
+
+[sub_resource type="Animation" id="Animation_p3npb"]
+resource_name = "Attack_S"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 6, 4, 3]
+}
+
+[sub_resource type="Animation" id="Animation_bd52w"]
+resource_name = "Attack_W"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [23, 26, 24, 23]
+}
 
 [sub_resource type="Animation" id="Animation_iltd1"]
 resource_name = "Idle_E"
@@ -128,6 +199,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [31]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_62cfc"]
@@ -440,6 +523,10 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ys1q3"]
 _data = {
+"Attack_E": SubResource("Animation_fe4sy"),
+"Attack_N": SubResource("Animation_6a84g"),
+"Attack_S": SubResource("Animation_p3npb"),
+"Attack_W": SubResource("Animation_bd52w"),
 "Idle_E": SubResource("Animation_iltd1"),
 "Idle_N": SubResource("Animation_pqjw2"),
 "Idle_S": SubResource("Animation_w46ww"),
@@ -450,6 +537,31 @@ _data = {
 "Walk_S": SubResource("Animation_en24q"),
 "Walk_W": SubResource("Animation_w8o7d")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wbt47"]
+animation = &"Attack_S"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2thps"]
+animation = &"Attack_N"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cmbhc"]
+animation = &"Attack_E"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cvau2"]
+animation = &"Attack_W"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_m6qe3"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_wbt47")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2thps")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_cmbhc")
+blend_point_2/pos = Vector2(1.1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_cvau2")
+blend_point_3/pos = Vector2(-1.1, 0)
+min_space = Vector2(-1.1, -1.1)
+max_space = Vector2(1.1, 1.1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t1djg"]
 animation = &"Idle_S"
@@ -474,7 +586,7 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_vkpd1")
 blend_point_3/pos = Vector2(-1.1, 0)
 min_space = Vector2(-1.1, -1.1)
 max_space = Vector2(1.1, 1.1)
-blend_mode = 2
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lqrpc"]
 animation = &"Walk_S"
@@ -502,16 +614,17 @@ max_space = Vector2(1.1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_24w52"]
+states/Attack/node = SubResource("AnimationNodeBlendSpace2D_m6qe3")
+states/Attack/position = Vector2(557.434, 165.333)
 states/End/position = Vector2(421.333, 144)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_eitqe")
 states/Idle/position = Vector2(433.333, 243.333)
 states/Start/position = Vector2(306.667, 242.716)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_0s7ip")
 states/Walk/position = Vector2(609.333, 236.667)
-graph_offset = Vector2(-15.8991, 62.6667)
+graph_offset = Vector2(-27.8991, 92.6667)
 
 [node name="Player" type="CharacterBody2D" groups=["Jugador"]]
-position = Vector2(115, 55)
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_v427t")
@@ -519,11 +632,15 @@ script = ExtResource("1_v427t")
 [node name="Auras" type="Sprite2D" parent="."]
 position = Vector2(0, 8)
 
+[node name="CastFx" parent="." instance=ExtResource("2_3bm8b")]
+position = Vector2(0, 8)
+
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_wg3so")
 hframes = 10
 vframes = 4
+frame = 4
 
 [node name="Boots" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -568,6 +685,7 @@ deterministic = false
 reset_on_save = false
 tree_root = SubResource("AnimationNodeStateMachine_24w52")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Attack/blend_position = Vector2(0, 0.0130178)
 parameters/Idle/blend_position = Vector2(0, 0.0437812)
 parameters/Walk/blend_position = Vector2(-0.34346, 0.580099)
 
@@ -576,9 +694,23 @@ parameters/Walk/blend_position = Vector2(-0.34346, 0.580099)
 [node name="Position2D" type="Marker2D" parent="TurnAxis"]
 position = Vector2(16, 0)
 
+[node name="Sprite2D" type="Sprite2D" parent="TurnAxis/Position2D"]
+visible = false
+texture = ExtResource("3_jktc4")
+
 [node name="CastBar" parent="." instance=ExtResource("3_py522")]
 visible = false
 offset_left = -8.0
 offset_top = -14.0
 offset_right = 8.0
 offset_bottom = -12.0
+
+[node name="Nickname" type="Label" parent="."]
+custom_minimum_size = Vector2(16, 8)
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+offset_bottom = -7.0
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+vertical_alignment = 1

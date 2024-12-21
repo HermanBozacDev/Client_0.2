@@ -102,7 +102,12 @@ func DetermineLatency():
 			PlayerData.SpawnClientPlayer(key,value)
 		"EquipItem":
 			PlayerData.EquipItem(value)
-
+		"Information":
+			print("volvi con iinformacion",value)
+			var new_information_instance = load("res://Scenes/UI/InformationPanel.tscn").instantiate()
+			new_information_instance.descriptionText = value[0]
+			var node = get_node("/root/SceneHandler/CanvasLayer")
+			node.add_child(new_information_instance)
 @rpc func ServerSendDataToAllClients(key,value):
 	match key:
 		"DespawnPlayer":

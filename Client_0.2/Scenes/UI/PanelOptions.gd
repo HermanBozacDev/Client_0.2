@@ -8,6 +8,8 @@ var actual = null
 func ClosePanel():
 	for node in get_tree().get_nodes_in_group("Panel"):
 		node.queue_free()
+	for node in get_tree().get_nodes_in_group("InformationPanel"):
+		node.queue_free()
 	PlayerData.move_item = false
 	PlayerData.move_skill = false
 	PlayerData.selected = false
@@ -40,6 +42,8 @@ func _on_skills_pressed() -> void:
 
 """ABRIR EQUIPO"""
 func _on_equip_pressed() -> void:
+	for node in get_tree().get_nodes_in_group("InformationPanel"):
+		node.queue_free()
 	if open == true and actual == "equip":
 		ClosePanel()
 		open = false

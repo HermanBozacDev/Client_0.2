@@ -144,7 +144,7 @@ text = "INFO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Info5" type="TextureButton" parent="Background/VBoxContainer"]
+[node name="ExitToMenu" type="TextureButton" parent="Background/VBoxContainer"]
 custom_minimum_size = Vector2(61, 8)
 layout_mode = 2
 texture_normal = ExtResource("2_0n2et")
@@ -152,7 +152,7 @@ texture_pressed = ExtResource("3_5whta")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Use" type="Label" parent="Background/VBoxContainer/Info5"]
+[node name="Use" type="Label" parent="Background/VBoxContainer/ExitToMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,6 +160,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 7
-text = "INFO"
+text = "TITLE SCREEN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="Background/VBoxContainer/ExitToMenu" to="." method="_on_exit_to_menu_pressed"]

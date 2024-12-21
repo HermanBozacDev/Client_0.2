@@ -7,6 +7,7 @@ var player_class
 var player_type
 var player_load = false
 var is_respawning = false
+var delete_player = false
 """DICCIONARIOS"""
 var stats_dic = {}
 var inventory_dic = {}
@@ -204,6 +205,30 @@ func Match_Skill():
 					pass
 
 """CREAR ATAQUES EN EL MAPA(ANTES DE CREAR LOS ATAQUES DEFINITIVAMENTE. DEBERIA IR AL SERVIDOR Y CONFIRMAR SI TIENE MANA ETC)"""
+func MeleeBasicAttack():
+	var player_node = get_tree().get_nodes_in_group("Jugador")[0]
+	var skill = preload("res://Scenes/Skills/FisicAttack.tscn")
+	var skill_instance = skill.instantiate()
+	
+	player_node.set_variables()
+	player_node.destination = player_node.position
+	var a_rotation = player_node.angle_to_mouse_position
+	player_node.get_node("TurnAxis").rotation = a_rotation
+	skill_instance.rotation = a_rotation
+	
+	var a_position =  (player_node.get_node("TurnAxis/Position2D").get_global_position()-player_node.get_global_position())
+	skill_instance.position = a_position
+	
+	player_node.add_child(skill_instance)
+	player_node.animation_vector = player_node.position.direction_to(player_node.get_global_mouse_position()).normalized()   
+	player_node.animation_tree.set("parameters/Attack/blend_position", player_node.animation_vector)
+	player_node.animation_mode.travel("Attack")
+	
+	var value = ["FisicAttack","BasicAttack",a_rotation,a_position, player_node.animation_vector, GameServer.client_clock,PlayerData.player_map,player_node.get_node("TurnAxis/Position2D").get_global_position()]
+	var key = "PlayerAttack"
+	GameServer.ClientSendDataToServer(key, value)
+			
+			
 func MeleeSingleTargetSkill():
 	var skill = preload("res://Scenes/Skills/MeleeSingleTargetSkill.tscn")
 	var new_skill_instance = skill.instantiate()

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvvuchr7ph2md"]
+[gd_scene load_steps=3 format=3 uid="uid://cvvuchr7ph2md"]
 
+[ext_resource type="Script" path="res://Scenes/UI/StatsPanel.gd" id="1_a7tfx"]
 [ext_resource type="Texture2D" uid="uid://bnrai4i5kisvc" path="res://Resources/GUI/InventoryBackground.png" id="1_i2iwf"]
 
 [node name="StatsPanel" type="Control" groups=["Panel"]]
@@ -16,6 +17,7 @@ offset_right = -0.200012
 offset_bottom = -3.88
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a7tfx")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -26,24 +28,312 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_i2iwf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -80.5
+[node name="TypeText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 4.0
+offset_right = 75.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 7.00003
+offset_top = 20.0
+offset_right = 48.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 5
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpeedText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 20.0
+offset_right = 64.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PAttack" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 20.0
+offset_right = 105.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 5
+text = "Physic Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PAttackText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 20.0
+offset_right = 121.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackSpeed" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 7.00003
+offset_top = 35.0
+offset_right = 48.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 5
+text = "Attack Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackSpeedText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 35.0
+offset_right = 64.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PDefence" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 35.0
+offset_right = 105.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 5
+text = "Physic Defence"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PDefenceText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 35.0
+offset_right = 121.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CastingSpeed" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 7.00003
+offset_top = 50.0
+offset_right = 48.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 5
+text = "Casting Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CastingSpeedText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 50.0
+offset_right = 64.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MAttack" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 50.0
+offset_right = 105.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 5
+text = "Magic Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MAttackText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 50.0
+offset_right = 121.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Critic" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 7.00003
+offset_top = 65.0
+offset_right = 48.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 5
+text = "Critic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CriticText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 65.0
+offset_right = 64.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MDefence" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 105.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 5
+text = "Magic Defence"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MDefenceText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 65.0
+offset_right = 121.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MCritic" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 7.00003
+offset_top = 80.0
+offset_right = 48.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 5
+text = "Magic Critic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MCriticText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 64.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Con" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 8.00003
+offset_top = 120.0
 offset_right = 49.0
-offset_bottom = 80.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 5
+text = "CON"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer"]
-layout_mode = 2
+[node name="ConText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 120.0
+offset_right = 65.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Background/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 4
-text = "Name"
+[node name="Dex" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 120.0
+offset_right = 106.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 5
+text = "DEX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DexText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 106.0
+offset_top = 120.0
+offset_right = 122.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Str" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 8.00003
+offset_top = 135.0
+offset_right = 49.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 5
+text = "STR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StrText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 135.0
+offset_right = 65.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Int" type="Label" parent="Background"]
+custom_minimum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 135.0
+offset_right = 106.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 5
+text = "INTQ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IntText" type="Label" parent="Background"]
+custom_minimum_size = Vector2(16, 8)
+layout_mode = 0
+offset_left = 106.0
+offset_top = 135.0
+offset_right = 122.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+vertical_alignment = 1

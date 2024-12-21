@@ -71,5 +71,3 @@ theme_override_font_sizes/font_size = 12
 text = "OK"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="pressed" from="Panel/Body/Ok" to="." method="_on_ok_pressed"]
